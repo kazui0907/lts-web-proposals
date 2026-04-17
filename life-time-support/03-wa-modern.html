@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ライフタイムサポート — Wa-Modern 案</title>
+<meta name="description" content="新築マンションの新たな一章を、和モダンの美学で。埼玉・越谷のライフタイムサポート。Wa-Modern 案。">
+<link rel="stylesheet" href="assets/common.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400&family=Noto+Sans+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --wa-dark: #1A1A2E;
+    --wa-darker: #0F0F1E;
+    --wa-paper: #F5EFE0;
+    --wa-gold: #D4AF37;
+    --wa-vermilion: #C1272D;
+    --wa-white: #FFFFFF;
+    --wa-text-dark: #CBD5E0;
+    --wa-text-light: #2D3748;
+    --font-min-jp: "Shippori Mincho", "Noto Serif JP", serif;
+    --font-sans-jp: "Noto Sans JP", sans-serif;
+    --font-serif-en: "Cormorant Garamond", serif;
+    --font-sans-en: "Inter", sans-serif;
+  }
+  body { font-family: var(--font-sans-jp); background: var(--wa-dark); color: var(--wa-text-dark); font-weight: 300; line-height: 1.9; }
+  .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(15,15,30,0.85); backdrop-filter: blur(12px); }
+  .header-inner { max-width: 1400px; margin: 0 auto; padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; }
+  .site-logo { font-family: var(--font-min-jp); font-size: 24px; color: var(--wa-paper); letter-spacing: 0.2em; font-weight: 500; }
+  .site-logo .en { display: block; font-family: var(--font-serif-en); font-size: 10px; letter-spacing: 0.3em; color: var(--wa-gold); margin-top: 4px; font-style: italic; }
+  .site-nav ul { display: flex; gap: 40px; }
+  .site-nav a { color: var(--wa-paper); font-size: 14px; letter-spacing: 0.15em; font-weight: 400; position: relative; padding: 4px 0; transition: color 0.3s; }
+  .site-nav a:hover { color: var(--wa-gold); }
+  .hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; background: var(--wa-darker); }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(212,175,55,0.08), transparent 60%); z-index: 1; }
+  .hero-image { position: absolute; top: 0; right: 0; width: 55%; height: 100%; z-index: 0; overflow: hidden; }
+  .hero-image img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.65) contrast(1.1); }
+  .hero-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, var(--wa-darker) 0%, transparent 60%); }
+  .hero-content { position: relative; z-index: 2; padding: 0 48px; max-width: 900px; }
+  .hero-kanji { font-family: var(--font-min-jp); font-size: clamp(80px, 14vw, 180px); font-weight: 700; color: var(--wa-gold); line-height: 1; opacity: 0.25; position: absolute; top: 20%; left: -20px; z-index: -1; writing-mode: vertical-rl; }
+  .hero-eyebrow { font-family: var(--font-serif-en); font-style: italic; font-size: 16px; color: var(--wa-gold); letter-spacing: 0.3em; margin-bottom: 32px; }
+  .hero-title { font-family: var(--font-min-jp); font-weight: 500; color: var(--wa-paper); font-size: clamp(36px, 5.5vw, 72px); line-height: 1.5; letter-spacing: 0.1em; margin-bottom: 32px; }
+  .hero-title em { font-style: normal; color: var(--wa-gold); }
+  .hero-sub { font-size: clamp(15px, 1.5vw, 18px); color: var(--wa-text-dark); letter-spacing: 0.08em; max-width: 560px; line-height: 2; }
+  .hero-cta { margin-top: 48px; display: inline-block; font-family: var(--font-sans-en); font-size: 13px; letter-spacing: 0.3em; color: var(--wa-paper); border-bottom: 1px solid var(--wa-gold); padding-bottom: 8px; transition: all 0.3s; }
+  .hero-cta:hover { color: var(--wa-gold); letter-spacing: 0.4em; }
+  .section { padding: 140px 48px; position: relative; }
+  .section-paper { background: var(--wa-paper); color: var(--wa-text-light); }
+  .section-head { max-width: 800px; margin: 0 auto 96px; text-align: center; }
+  .section-eyebrow { font-family: var(--font-serif-en); font-style: italic; font-size: 15px; color: var(--wa-gold); letter-spacing: 0.3em; margin-bottom: 16px; }
+  .section-paper .section-eyebrow { color: var(--wa-vermilion); }
+  .section-title { font-family: var(--font-min-jp); font-weight: 500; font-size: clamp(28px, 3.8vw, 48px); letter-spacing: 0.2em; line-height: 1.5; }
+  .ornament { display: block; width: 48px; height: 1px; background: var(--wa-gold); margin: 24px auto 32px; }
+  .philosophy { max-width: 900px; margin: 0 auto; text-align: center; }
+  .philosophy-text { font-family: var(--font-min-jp); font-size: clamp(17px, 1.8vw, 22px); line-height: 2.4; letter-spacing: 0.12em; margin-bottom: 40px; color: var(--wa-text-light); }
+  .philosophy-quote { font-family: var(--font-min-jp); font-size: clamp(22px, 3vw, 32px); font-weight: 500; letter-spacing: 0.2em; color: var(--wa-darker); border-top: 1px solid var(--wa-gold); border-bottom: 1px solid var(--wa-gold); padding: 32px 0; display: inline-block; }
+  .features-list { max-width: 1100px; margin: 0 auto; }
+  .feature-row { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; margin-bottom: 140px; padding-bottom: 100px; border-bottom: 1px solid rgba(212,175,55,0.2); }
+  .feature-row:last-child { margin-bottom: 0; border-bottom: none; }
+  .feature-row.reverse { grid-template-columns: 1.2fr 1fr; direction: rtl; }
+  .feature-row.reverse > * { direction: ltr; }
+  .feature-kanji { font-family: var(--font-min-jp); font-size: clamp(60px, 8vw, 120px); font-weight: 700; color: var(--wa-gold); line-height: 1; margin-bottom: 24px; opacity: 0.9; }
+  .feature-num { font-family: var(--font-serif-en); font-size: 14px; letter-spacing: 0.3em; color: var(--wa-gold); margin-bottom: 16px; font-style: italic; }
+  .feature-title { font-family: var(--font-min-jp); font-weight: 500; font-size: clamp(24px, 3vw, 34px); letter-spacing: 0.1em; color: var(--wa-paper); margin-bottom: 24px; line-height: 1.5; }
+  .feature-text { font-size: 15px; line-height: 2.2; letter-spacing: 0.05em; }
+  .feature-img { aspect-ratio: 4/5; overflow: hidden; position: relative; }
+  .feature-img::after { content: ''; position: absolute; inset: 0; border: 1px solid var(--wa-gold); transform: translate(16px, 16px); pointer-events: none; }
+  .feature-img img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.4) brightness(0.85); }
+  .services-section { background: var(--wa-paper); color: var(--wa-text-light); }
+  .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; max-width: 1200px; margin: 0 auto; }
+  .service-card { background: var(--wa-white); padding: 48px 32px; text-align: center; position: relative; transition: all 0.4s; }
+  .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--wa-gold); transform: scaleX(0); transition: transform 0.4s; transform-origin: left; }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(26,26,46,0.1); }
+  .service-kanji { font-family: var(--font-min-jp); font-size: 40px; font-weight: 500; color: var(--wa-vermilion); margin-bottom: 20px; }
+  .service-name { font-family: var(--font-min-jp); font-weight: 500; font-size: 20px; letter-spacing: 0.15em; margin-bottom: 12px; color: var(--wa-darker); }
+  .service-en { font-family: var(--font-serif-en); font-style: italic; font-size: 13px; letter-spacing: 0.2em; color: var(--wa-gold); margin-bottom: 16px; }
+  .service-desc { font-size: 14px; line-height: 2; color: #4A5568; }
+  .cta-section { background: var(--wa-darker); text-align: center; padding: 120px 24px; position: relative; overflow: hidden; }
+  .cta-section::before { content: '相'; position: absolute; font-family: var(--font-min-jp); font-weight: 700; font-size: 400px; color: var(--wa-gold); opacity: 0.05; top: -80px; left: 50%; transform: translateX(-50%); }
+  .cta-content { position: relative; z-index: 2; }
+  .cta-button { display: inline-block; font-family: var(--font-min-jp); font-size: 18px; letter-spacing: 0.3em; color: var(--wa-paper); padding: 20px 80px; border: 1px solid var(--wa-gold); margin-top: 32px; transition: all 0.4s; position: relative; }
+  .cta-button:hover { background: var(--wa-gold); color: var(--wa-darker); letter-spacing: 0.4em; }
+  .site-footer { background: var(--wa-darker); border-top: 1px solid rgba(212,175,55,0.2); padding: 80px 48px 40px; color: var(--wa-text-dark); }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 64px; max-width: 1200px; margin: 0 auto 48px; }
+  .footer-logo { font-family: var(--font-min-jp); font-size: 22px; color: var(--wa-paper); letter-spacing: 0.2em; margin-bottom: 20px; }
+  .footer-info { font-size: 13px; line-height: 2; }
+  .footer-heading { font-family: var(--font-serif-en); font-style: italic; font-size: 13px; letter-spacing: 0.25em; color: var(--wa-gold); margin-bottom: 20px; }
+  .footer-link-list li { margin-bottom: 12px; font-size: 13px; }
+  .footer-copy { text-align: center; font-size: 11px; letter-spacing: 0.3em; padding-top: 40px; border-top: 1px solid rgba(212,175,55,0.15); font-family: var(--font-serif-en); font-style: italic; }
+  @media (max-width: 900px) {
+    .header-inner, .section, .site-footer { padding-left: 24px; padding-right: 24px; }
+    .hero-image { width: 100%; opacity: 0.35; }
+    .hero-image::after { display: none; }
+    .site-nav ul { display: none; }
+    .feature-row, .feature-row.reverse { grid-template-columns: 1fr; gap: 40px; direction: ltr; margin-bottom: 80px; padding-bottom: 60px; }
+    .service-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .section { padding: 80px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="site-logo">ライフタイムサポート<span class="en">LIFETIME SUPPORT</span></div>
+    <nav class="site-nav" aria-label="メインナビゲーション">
+      <ul>
+        <li><a href="#philosophy">理念</a></li>
+        <li><a href="#features">特長</a></li>
+        <li><a href="#services">事業</a></li>
+        <li><a href="#contact">相談</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-image">
+      <img src="https://source.unsplash.com/1600x1200/?japanese,interior,modern,architecture,home" alt="和モダンな新築マンションの空間">
+    </div>
+    <div class="hero-content">
+      <div class="hero-kanji" aria-hidden="true">住</div>
+      <p class="hero-eyebrow">— Since Saitama, Koshigaya —</p>
+      <h1 class="hero-title">住まいに、<em>志</em>を。<br>暮らしに、品格を。</h1>
+      <p class="hero-sub">新築マンションという人生の節目。その最初の一筆を、確かな技と誠実な仕事で描き出す。越谷に根を張り、関東一円のご家族に寄り添ってまいります。</p>
+      <a href="#philosophy" class="hero-cta">SCROLL TO DISCOVER</a>
+    </div>
+  </section>
+
+  <section id="philosophy" class="section section-paper">
+    <div class="section-head">
+      <p class="section-eyebrow">Our Philosophy</p>
+      <h2 class="section-title">道を、共に歩む</h2>
+      <span class="ornament"></span>
+    </div>
+    <div class="philosophy">
+      <p class="philosophy-text">住まいは、ただの箱ではない。<br>家族の物語がつむがれ、時を重ねる舞台である。<br>だからこそ私たちは、素材を吟味し、技を磨き、誠実を尽くす。<br>その一つひとつの積み重ねが、お客様の人生の一章を支えると信じて。</p>
+      <p class="philosophy-quote">一生涯の、伴走者たれ</p>
+    </div>
+  </section>
+
+  <section id="features" class="section">
+    <div class="section-head">
+      <p class="section-eyebrow">Our Commitment</p>
+      <h2 class="section-title">私たちの流儀</h2>
+      <span class="ornament"></span>
+    </div>
+    <div class="features-list">
+      <div class="feature-row">
+        <div class="feature-img">
+          <img src="https://source.unsplash.com/800x1000/?craftsmanship,japanese,interior,detail" alt="職人の仕事">
+        </div>
+        <div>
+          <div class="feature-kanji">匠</div>
+          <p class="feature-num">— 01 —</p>
+          <h3 class="feature-title">匠の技、<br>その先の誠実。</h3>
+          <p class="feature-text">素材を選ぶ目、施す手、仕上げる心。大量生産では生まれない、ひとつひとつの住まいへの向き合い方を、私たちは守り続けます。お客様の暮らしに、長く寄り添える仕事を。</p>
+        </div>
+      </div>
+      <div class="feature-row reverse">
+        <div>
+          <div class="feature-kanji">共</div>
+          <p class="feature-num">— 02 —</p>
+          <h3 class="feature-title">共に、<br>歩み続ける。</h3>
+          <p class="feature-text">購入前の内覧会同行から、入居後の定期メンテナンスまで。一度きりの工事で終わらない、生涯にわたる伴走を。越谷の拠点から、ご家族の時間の流れに寄り添います。</p>
+        </div>
+        <div class="feature-img">
+          <img src="https://source.unsplash.com/800x1000/?team,consultation,japanese,home" alt="お客様との対話">
+        </div>
+      </div>
+      <div class="feature-row">
+        <div class="feature-img">
+          <img src="https://source.unsplash.com/800x1000/?showroom,japanese,modern,interior" alt="ショールーム">
+        </div>
+        <div>
+          <div class="feature-kanji">体</div>
+          <p class="feature-num">— 03 —</p>
+          <h3 class="feature-title">見て、触れて、<br>確かめる。</h3>
+          <p class="feature-text">体験型ショールームでは、素材の質感、空間の空気感を、ご自身の五感で確かめていただけます。写真やカタログでは伝わらない、本当の暮らしの景色を、ぜひ体感ください。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="section services-section">
+    <div class="section-head">
+      <p class="section-eyebrow">Services</p>
+      <h2 class="section-title">事業内容</h2>
+      <span class="ornament"></span>
+    </div>
+    <div class="service-grid">
+      <article class="service-card">
+        <div class="service-kanji">壁</div>
+        <h3 class="service-name">エコカラット</h3>
+        <p class="service-en">Eco-Wall</p>
+        <p class="service-desc">意匠と機能を宿す室内壁材。湿度と香りまで整える、上質な空気の創造。</p>
+      </article>
+      <article class="service-card">
+        <div class="service-kanji">床</div>
+        <h3 class="service-name">フロアコーティング</h3>
+        <p class="service-en">Floor Coating</p>
+        <p class="service-desc">歳月が美しさを深めていく床へ。熟練の施工で長きにわたる美観を守ります。</p>
+      </article>
+      <article class="service-card">
+        <div class="service-kanji">護</div>
+        <h3 class="service-name">各種コーティング</h3>
+        <p class="service-en">Protection</p>
+        <p class="service-desc">水周り・クロス・白木。それぞれの素材に合わせた、専門の守護を。</p>
+      </article>
+      <article class="service-card">
+        <div class="service-kanji">誂</div>
+        <h3 class="service-name">オーダー家具・ミラー</h3>
+        <p class="service-en">Custom-Made</p>
+        <p class="service-desc">寸法も意匠もひとつきり。ご家族だけの逸品を、職人の手でお誂えします。</p>
+      </article>
+      <article class="service-card">
+        <div class="service-kanji">景</div>
+        <h3 class="service-name">バルコニー・窓装飾</h3>
+        <p class="service-en">Outdoor Living</p>
+        <p class="service-desc">タイルとフィルムで、第二の居間を演出。眺めも機能も、妥協せず。</p>
+      </article>
+      <article class="service-card">
+        <div class="service-kanji">厨</div>
+        <h3 class="service-name">ビルトイン家電</h3>
+        <p class="service-en">Built-in</p>
+        <p class="service-desc">食洗機・オーブン・IH。見えない気配りが、毎日の厨を整えます。</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-content">
+      <p class="section-eyebrow">Contact</p>
+      <h2 class="section-title" style="color: var(--wa-paper);">まずは、一度お話を。</h2>
+      <span class="ornament"></span>
+      <a href="#contact" class="cta-button">無料相談へ</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contact" class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">ライフタイムサポート</div>
+      <p class="footer-info">株式会社ライフタイムサポート<br>〒343-0806 埼玉県越谷市宮本町5-5-8<br>TEL 048-954-9105<br>受付 9:00–17:00 / 営業 9:00–18:00 / 年中無休</p>
+    </div>
+    <div>
+      <p class="footer-heading">Services</p>
+      <ul class="footer-link-list">
+        <li>エコカラット</li>
+        <li>フロアコーティング</li>
+        <li>オーダー家具</li>
+        <li>ビルトイン家電</li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-heading">Company</p>
+      <ul class="footer-link-list">
+        <li>理念</li>
+        <li>ショールーム</li>
+        <li>ブログ</li>
+        <li>お問い合わせ</li>
+      </ul>
+    </div>
+  </div>
+  <p class="footer-copy">© LIFETIME SUPPORT — KOSHIGAYA, SAITAMA</p>
+</footer>
+
+</body>
+</html>

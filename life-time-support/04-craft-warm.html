@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ライフタイムサポート — Craft Warm 案（第一推奨）</title>
+<meta name="description" content="新居に、手仕事の温もりを。埼玉・越谷のライフタイムサポートが、ご家族の暮らしを丁寧に整えます。Craft Warm 案。">
+<link rel="stylesheet" href="assets/common.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400&family=Cormorant+Garamond:wght@400;500&family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@400;500&family=Noto+Serif+JP:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cw-bg: #FBF8F3;
+    --cw-bg-alt: #F4EFE8;
+    --cw-brown-deep: #3D2817;
+    --cw-brown: #5C3D1F;
+    --cw-amber: #B45309;
+    --cw-amber-light: #D97706;
+    --cw-teal: #0891B2;
+    --cw-text: #1C1917;
+    --cw-muted: #57534E;
+    --cw-cream: #FFFCF6;
+    --font-serif-jp: "Noto Serif JP", serif;
+    --font-sans-jp: "Noto Sans JP", sans-serif;
+    --font-serif-en: "DM Serif Display", "Cormorant Garamond", serif;
+    --font-sans-en: "Inter", sans-serif;
+  }
+  body { font-family: var(--font-sans-jp); color: var(--cw-text); background: var(--cw-bg); font-weight: 400; line-height: 1.9; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: radial-gradient(circle at 1px 1px, rgba(61,40,23,0.04) 1px, transparent 1px); background-size: 20px 20px; pointer-events: none; z-index: 1; }
+  .site-header { position: sticky; top: 0; z-index: 100; background: rgba(251,248,243,0.96); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(61,40,23,0.08); }
+  .header-inner { max-width: 1280px; margin: 0 auto; padding: 20px 32px; display: flex; justify-content: space-between; align-items: center; }
+  .site-logo { display: flex; align-items: baseline; gap: 12px; }
+  .logo-mark { font-family: var(--font-serif-en); font-size: 26px; color: var(--cw-brown-deep); letter-spacing: 0.02em; }
+  .logo-sub { font-size: 12px; color: var(--cw-muted); letter-spacing: 0.2em; }
+  .site-nav ul { display: flex; gap: 32px; align-items: center; }
+  .site-nav a { font-size: 14px; color: var(--cw-brown-deep); font-weight: 500; letter-spacing: 0.05em; transition: color 0.2s; position: relative; }
+  .site-nav a:hover { color: var(--cw-amber); }
+  .header-cta { background: var(--cw-brown-deep); color: var(--cw-cream) !important; padding: 10px 22px; border-radius: 999px; font-size: 13px; letter-spacing: 0.05em; transition: all 0.2s; }
+  .header-cta:hover { background: var(--cw-amber); transform: translateY(-1px); }
+  .hero { padding: 64px 32px 96px; position: relative; z-index: 2; }
+  .hero-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 10px; padding: 8px 18px; background: var(--cw-bg-alt); border-radius: 999px; font-size: 13px; color: var(--cw-brown); letter-spacing: 0.05em; margin-bottom: 28px; }
+  .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--cw-amber); border-radius: 50%; }
+  .hero-title { font-family: var(--font-serif-jp); font-weight: 500; font-size: clamp(36px, 5.5vw, 68px); line-height: 1.35; letter-spacing: 0.03em; margin-bottom: 28px; }
+  .hero-title em { font-style: normal; color: var(--cw-amber); position: relative; }
+  .hero-title em::after { content: ''; position: absolute; left: 0; right: 0; bottom: 4px; height: 8px; background: rgba(180,83,9,0.15); z-index: -1; }
+  .hero-sub { font-size: clamp(15px, 1.5vw, 17px); color: var(--cw-muted); line-height: 2.2; margin-bottom: 40px; max-width: 540px; }
+  .hero-cta-row { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin-bottom: 48px; }
+  .btn-primary { background: var(--cw-brown-deep); color: var(--cw-cream); padding: 18px 36px; border-radius: 14px; font-weight: 600; font-size: 16px; display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s; }
+  .btn-primary:hover { background: var(--cw-amber); transform: translateY(-2px); box-shadow: 0 12px 24px rgba(180,83,9,0.25); }
+  .btn-primary::after { content: '→'; transition: transform 0.3s; }
+  .btn-primary:hover::after { transform: translateX(4px); }
+  .btn-text { color: var(--cw-brown-deep); font-weight: 600; font-size: 15px; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+  .hero-stats { display: flex; gap: 40px; padding-top: 32px; border-top: 1px solid rgba(61,40,23,0.12); }
+  .stat-num { font-family: var(--font-serif-en); font-size: 36px; color: var(--cw-brown-deep); line-height: 1; margin-bottom: 6px; }
+  .stat-label { font-size: 12px; color: var(--cw-muted); letter-spacing: 0.1em; }
+  .hero-image-wrap { position: relative; }
+  .hero-image-main { aspect-ratio: 4/5; border-radius: 32px; overflow: hidden; box-shadow: 0 40px 80px rgba(61,40,23,0.18); }
+  .hero-image-main img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-image-accent { position: absolute; bottom: -40px; left: -40px; width: 220px; aspect-ratio: 1; border-radius: 24px; overflow: hidden; border: 6px solid var(--cw-bg); box-shadow: 0 24px 48px rgba(61,40,23,0.15); }
+  .hero-image-accent img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-accent-label { position: absolute; top: -24px; right: -24px; background: var(--cw-amber); color: var(--cw-cream); padding: 16px 24px; border-radius: 999px; font-size: 14px; font-weight: 600; letter-spacing: 0.05em; transform: rotate(6deg); box-shadow: 0 12px 24px rgba(180,83,9,0.3); }
+  .section { padding: 120px 32px; position: relative; z-index: 2; }
+  .section-head { max-width: 800px; margin: 0 auto 72px; text-align: center; }
+  .section-eyebrow { display: inline-block; font-family: var(--font-serif-en); font-size: 16px; color: var(--cw-amber); letter-spacing: 0.2em; margin-bottom: 16px; padding: 4px 16px; background: rgba(180,83,9,0.08); border-radius: 999px; }
+  .section-title { font-family: var(--font-serif-jp); font-weight: 500; font-size: clamp(30px, 4vw, 44px); line-height: 1.4; margin-bottom: 20px; letter-spacing: 0.03em; }
+  .section-lead { font-size: 16px; color: var(--cw-muted); line-height: 2.2; max-width: 700px; margin: 0 auto; }
+  .philosophy-section { background: var(--cw-bg-alt); border-radius: 40px; margin: 0 24px; padding: 96px 48px; }
+  .philosophy-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+  .philosophy-quote { font-family: var(--font-serif-jp); font-weight: 500; font-size: clamp(22px, 2.8vw, 32px); line-height: 1.9; color: var(--cw-brown-deep); margin-bottom: 32px; letter-spacing: 0.05em; }
+  .philosophy-attr { font-family: var(--font-serif-en); font-style: italic; color: var(--cw-muted); font-size: 15px; }
+  .features-wrap { max-width: 1280px; margin: 0 auto; }
+  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .feature-card { background: var(--cw-cream); border-radius: 24px; padding: 40px; border: 1px solid rgba(61,40,23,0.06); transition: all 0.3s; }
+  .feature-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(61,40,23,0.1); }
+  .feature-icon { width: 64px; height: 64px; background: var(--cw-bg-alt); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 28px; color: var(--cw-amber); margin-bottom: 24px; font-family: var(--font-serif-en); }
+  .feature-title { font-family: var(--font-serif-jp); font-weight: 500; font-size: 22px; margin-bottom: 12px; }
+  .feature-text { font-size: 15px; color: var(--cw-muted); line-height: 2; }
+  .services-section { padding: 120px 32px; }
+  .services-inner { max-width: 1280px; margin: 0 auto; }
+  .service-scroll { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .service-card { background: var(--cw-cream); border-radius: 28px; overflow: hidden; transition: all 0.4s; position: relative; }
+  .service-card:hover { transform: translateY(-8px); box-shadow: 0 32px 60px rgba(61,40,23,0.15); }
+  .service-img { aspect-ratio: 4/3; overflow: hidden; position: relative; }
+  .service-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+  .service-card:hover .service-img img { transform: scale(1.08); }
+  .service-number { position: absolute; top: 20px; left: 20px; background: var(--cw-cream); color: var(--cw-brown-deep); padding: 6px 16px; border-radius: 999px; font-family: var(--font-serif-en); font-size: 14px; font-weight: 500; }
+  .service-body { padding: 32px; }
+  .service-name-jp { font-family: var(--font-serif-jp); font-weight: 500; font-size: 22px; margin-bottom: 8px; }
+  .service-name-en { font-family: var(--font-serif-en); color: var(--cw-amber); font-size: 13px; letter-spacing: 0.1em; margin-bottom: 16px; }
+  .service-desc { font-size: 14px; color: var(--cw-muted); line-height: 2; }
+  .story-section { background: var(--cw-brown-deep); color: var(--cw-cream); padding: 120px 32px; border-radius: 40px; margin: 0 24px; }
+  .story-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+  .story-section .section-eyebrow { background: rgba(255,252,246,0.1); color: var(--cw-cream); }
+  .story-section .section-title { color: var(--cw-cream); }
+  .story-text { font-family: var(--font-serif-jp); font-weight: 500; font-size: clamp(17px, 1.8vw, 20px); line-height: 2.2; color: rgba(255,252,246,0.85); letter-spacing: 0.05em; margin-bottom: 40px; }
+  .story-cta { display: inline-flex; align-items: center; gap: 12px; padding: 18px 40px; background: var(--cw-amber); color: var(--cw-cream); border-radius: 14px; font-weight: 600; transition: all 0.3s; }
+  .story-cta:hover { background: var(--cw-amber-light); transform: translateY(-2px); }
+  .cta-final { background: var(--cw-bg-alt); padding: 120px 32px; text-align: center; border-radius: 40px; margin: 0 24px 96px; }
+  .cta-final-phone { font-family: var(--font-serif-en); font-size: clamp(40px, 6vw, 72px); color: var(--cw-brown-deep); margin: 24px 0; letter-spacing: 0.05em; display: inline-block; }
+  .cta-final-phone:hover { color: var(--cw-amber); }
+  .site-footer { background: var(--cw-brown-deep); color: rgba(255,252,246,0.75); padding: 80px 32px 40px; position: relative; z-index: 2; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; max-width: 1280px; margin: 0 auto 56px; }
+  .footer-logo { font-family: var(--font-serif-en); font-size: 28px; color: var(--cw-cream); margin-bottom: 16px; }
+  .footer-info { font-size: 13px; line-height: 2; }
+  .footer-info strong { color: var(--cw-amber-light); font-size: 18px; display: block; margin: 8px 0; }
+  .footer-heading { font-size: 13px; font-weight: 600; color: var(--cw-cream); margin-bottom: 20px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .footer-links li { margin-bottom: 10px; font-size: 13px; }
+  .footer-bottom { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; padding-top: 32px; border-top: 1px solid rgba(255,252,246,0.1); font-size: 12px; }
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-image-accent { width: 140px; bottom: -24px; left: -20px; }
+    .site-nav ul { display: none; }
+    .features-grid, .service-scroll, .footer-grid { grid-template-columns: 1fr; }
+    .philosophy-section, .story-section, .cta-final { margin: 0; border-radius: 0; padding-left: 24px; padding-right: 24px; }
+    .section { padding: 80px 20px; }
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="site-logo">
+      <span class="logo-mark">LifeTime</span>
+      <span class="logo-sub">KOSHIGAYA, SAITAMA</span>
+    </div>
+    <nav class="site-nav" aria-label="メインナビゲーション">
+      <ul>
+        <li><a href="#philosophy">私たちのこと</a></li>
+        <li><a href="#features">選ばれる理由</a></li>
+        <li><a href="#services">サービス</a></li>
+        <li><a href="#showroom">ショールーム</a></li>
+        <li><a href="#contact" class="header-cta">無料相談</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <span class="hero-badge">新築マンションオプション工事 ・ 越谷発</span>
+        <h1 class="hero-title">新しい暮らしに、<br><em>手仕事の温もり</em>を。</h1>
+        <p class="hero-sub">購入前の内覧会同行から、入居後の定期メンテナンスまで。ひとつひとつの仕事を、ご家族の大切な時間のために丁寧に。越谷から、関東のご家庭に寄り添っています。</p>
+        <div class="hero-cta-row">
+          <a href="#contact" class="btn-primary">無料相談をはじめる</a>
+          <a href="#showroom" class="btn-text">ショールームを見る</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="stat-num">20+</div>
+            <div class="stat-label">YEARS OF CRAFT</div>
+          </div>
+          <div>
+            <div class="stat-num">9:00-18:00</div>
+            <div class="stat-label">年中無休でご対応</div>
+          </div>
+          <div>
+            <div class="stat-num">埼玉・関東</div>
+            <div class="stat-label">名古屋エリアまで</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image-wrap">
+        <div class="hero-image-main">
+          <img src="https://source.unsplash.com/1000x1250/?living,interior,warm,home,wood,japanese" alt="手仕事の温もりを感じる新居のリビング">
+        </div>
+        <div class="hero-image-accent">
+          <img src="https://source.unsplash.com/500x500/?craft,hands,interior,detail" alt="丁寧な手仕事">
+        </div>
+        <div class="hero-accent-label">内覧会同行 無料</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="philosophy-section">
+    <div class="philosophy-inner">
+      <span class="section-eyebrow">Our Story</span>
+      <p class="philosophy-quote">「はじめての新居に、家族のかけがえない時間が流れはじめる。」<br>その景色を、私たちは仕事の真ん中に置いてきました。</p>
+      <p class="philosophy-attr">— ライフタイムサポート 代表より</p>
+    </div>
+  </section>
+
+  <section id="features" class="section">
+    <div class="section-head">
+      <span class="section-eyebrow">Why Us</span>
+      <h2 class="section-title">選ばれる3つの理由</h2>
+      <p class="section-lead">大切なご家族のための住まいだからこそ、素材選びから施工、そしてお引き渡し後までを一貫して。越谷の地で積み上げた信頼を、ご家庭ごとに丁寧にお届けします。</p>
+    </div>
+    <div class="features-wrap">
+      <div class="features-grid">
+        <article class="feature-card">
+          <div class="feature-icon">A</div>
+          <h3 class="feature-title">高品質、適正価格</h3>
+          <p class="feature-text">素材は厳選、中間マージンは排除。ご家族が納得できる価格で、妥協のない品質をお届けします。</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">B</div>
+          <h3 class="feature-title">長い時間の伴走</h3>
+          <p class="feature-text">施工後もずっと。定期メンテナンスで美しさを保ち、困ったときはすぐに駆けつけます。</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">C</div>
+          <h3 class="feature-title">内覧会同行、無料</h3>
+          <p class="feature-text">チェックシートを片手に、プロと一緒に新居を確認。不安を安心に変えてお引き渡しへ。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="services-section">
+    <div class="services-inner">
+      <div class="section-head">
+        <span class="section-eyebrow">What We Offer</span>
+        <h2 class="section-title">暮らしを整える、6つの手仕事</h2>
+        <p class="section-lead">壁から床、家具から家電まで。ご家族の新生活を支える一つひとつを、丁寧に組み立ててまいります。</p>
+      </div>
+      <div class="service-scroll">
+        <article class="service-card">
+          <div class="service-img">
+            <span class="service-number">01</span>
+            <img src="https://source.unsplash.com/800x600/?wall,interior,design,ceramic" alt="エコカラット">
+          </div>
+          <div class="service-body">
+            <h3 class="service-name-jp">エコカラット</h3>
+            <p class="service-name-en">Eco Carat Wall</p>
+            <p class="service-desc">デザインと機能を兼ね備えた室内壁材。意匠が空気まで整えます。</p>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-img">
+            <span class="service-number">02</span>
+            <img src="https://source.unsplash.com/800x600/?wood,floor,home,warm" alt="フロアコーティング">
+          </div>
+          <div class="service-body">
+            <h3 class="service-name-jp">フロアコーティング</h3>
+            <p class="service-name-en">Floor Coating</p>
+            <p class="service-desc">歳月が色気を増す床へ。プロの施工で長く美しさを守ります。</p>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-img">
+            <span class="service-number">03</span>
+            <img src="https://source.unsplash.com/800x600/?bathroom,white,clean,interior" alt="コーティング">
+          </div>
+          <div class="service-body">
+            <h3 class="service-name-jp">各種コーティング</h3>
+            <p class="service-name-en">Protection</p>
+            <p class="service-desc">水周り・クロス・白木の素材に合わせた専門の守護を。</p>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-img">
+            <span class="service-number">04</span>
+            <img src="https://source.unsplash.com/800x600/?furniture,custom,wood,warm" alt="オーダー家具">
+          </div>
+          <div class="service-body">
+            <h3 class="service-name-jp">オーダー家具・ミラー・カーテン</h3>
+            <p class="service-name-en">Made-to-Measure</p>
+            <p class="service-desc">ご自宅の寸法にぴったり合う、唯一のしつらえを。</p>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-img">
+            <span class="service-number">05</span>
+            <img src="https://source.unsplash.com/800x600/?balcony,garden,warm,home" alt="バルコニー">
+          </div>
+          <div class="service-body">
+            <h3 class="service-name-jp">バルコニー・窓フィルム</h3>
+            <p class="service-name-en">Outdoor & Window</p>
+            <p class="service-desc">第二のリビングを演出。遮熱も美観も、丁寧に。</p>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-img">
+            <span class="service-number">06</span>
+            <img src="https://source.unsplash.com/800x600/?kitchen,warm,appliance,wood" alt="ビルトイン家電">
+          </div>
+          <div class="service-body">
+            <h3 class="service-name-jp">ビルトイン家電</h3>
+            <p class="service-name-en">Built-in Appliances</p>
+            <p class="service-desc">食洗機・オーブン・IHが、美しく収まるキッチンへ。</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="showroom" class="story-section">
+    <div class="story-inner">
+      <span class="section-eyebrow">Showroom</span>
+      <h2 class="section-title">体感できる、ショールーム。</h2>
+      <p class="story-text">カタログの写真では伝わらない素材の肌合い、空間の空気感。<br>実際の施工例を見て、触れて、ご家族の暮らしに迎え入れる前の<br>確かな手応えを、ぜひ越谷のショールームで。</p>
+      <a href="#contact" class="story-cta">ショールーム来場予約 →</a>
+    </div>
+  </section>
+
+  <section class="cta-final">
+    <span class="section-eyebrow">Contact</span>
+    <h2 class="section-title">まずは、お気軽にお電話を。</h2>
+    <a href="tel:0489549105" class="cta-final-phone">048-954-9105</a>
+    <p class="section-lead">受付 9:00–17:00 / 営業 9:00–18:00 / 年中無休<br>LINEでのお問い合わせも受け付けております。</p>
+  </section>
+</main>
+
+<footer id="contact" class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">LifeTime</div>
+      <p class="footer-info">株式会社ライフタイムサポート<br>〒343-0806 埼玉県越谷市宮本町5-5-8<strong>048-954-9105</strong>受付 9:00–17:00 / 営業 9:00–18:00 / 年中無休</p>
+    </div>
+    <div>
+      <p class="footer-heading">Services</p>
+      <ul class="footer-links">
+        <li>エコカラット</li>
+        <li>フロアコーティング</li>
+        <li>オーダー家具</li>
+        <li>ビルトイン家電</li>
+        <li>バルコニータイル</li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-heading">Company</p>
+      <ul class="footer-links">
+        <li>私たちのこと</li>
+        <li>ショールーム</li>
+        <li>ブログ</li>
+        <li>採用情報</li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-heading">Contact</p>
+      <ul class="footer-links">
+        <li>無料相談</li>
+        <li>資料請求</li>
+        <li>LINEで相談</li>
+        <li>よくある質問</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© LifeTime Support Co., Ltd.</p>
+    <p>Koshigaya, Saitama, JAPAN</p>
+  </div>
+</footer>
+
+</body>
+</html>

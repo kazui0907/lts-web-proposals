@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ライフタイムサポート — Luxury Mono 案</title>
+<meta name="description" content="新築マンションのオプション工事を、上質な暮らしへと昇華する。ライフタイムサポート（埼玉・越谷）のデザイン提案 Luxury Mono 案。">
+<link rel="stylesheet" href="assets/common.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@200;300;400&family=Noto+Sans+JP:wght@200;300;400&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --mono-bg: #FFFFFF;
+    --mono-ink: #000000;
+    --mono-sub: #1A1A1A;
+    --mono-muted: #6B6B6B;
+    --mono-accent: #8C7853;
+    --font-serif-jp: "Noto Serif JP", serif;
+    --font-serif-en: "Cormorant Garamond", serif;
+    --font-sans-jp: "Noto Sans JP", sans-serif;
+    --font-sans-en: "Inter", sans-serif;
+  }
+  body { font-family: var(--font-sans-jp); color: var(--mono-ink); background: var(--mono-bg); font-weight: 300; }
+  .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); }
+  .site-logo { font-family: var(--font-serif-en); font-size: 22px; letter-spacing: 0.3em; font-weight: 400; }
+  .site-nav ul { display: flex; gap: 36px; }
+  .site-nav a { font-family: var(--font-sans-en); font-size: 12px; letter-spacing: 0.25em; text-transform: uppercase; transition: opacity 0.3s; }
+  .site-nav a:hover { opacity: 0.5; }
+  .hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .hero-image { position: absolute; inset: 0; z-index: 0; }
+  .hero-image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.2) 100%); z-index: 1; }
+  .hero-content { position: relative; z-index: 2; text-align: center; color: #fff; mix-blend-mode: difference; padding: 0 24px; }
+  .hero-eyebrow { font-family: var(--font-sans-en); font-size: 13px; letter-spacing: 0.4em; text-transform: uppercase; margin-bottom: 32px; }
+  .hero-title { font-family: var(--font-serif-jp); font-weight: 300; font-size: clamp(36px, 6vw, 72px); letter-spacing: 0.15em; line-height: 1.4; margin-bottom: 24px; }
+  .hero-sub { font-family: var(--font-serif-en); font-size: clamp(18px, 2vw, 24px); font-style: italic; font-weight: 300; letter-spacing: 0.1em; }
+  .section { padding: 140px 24px; }
+  .section-title { font-family: var(--font-serif-jp); font-weight: 300; font-size: clamp(28px, 4vw, 48px); letter-spacing: 0.2em; text-align: center; margin-bottom: 16px; }
+  .section-subtitle { font-family: var(--font-serif-en); font-style: italic; color: var(--mono-muted); text-align: center; margin-bottom: 80px; letter-spacing: 0.1em; }
+  .features { max-width: 1100px; margin: 0 auto; }
+  .feature-row { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-bottom: 160px; }
+  .feature-row:nth-child(even) { direction: rtl; }
+  .feature-row:nth-child(even) > * { direction: ltr; }
+  .feature-number { font-family: var(--font-serif-en); font-size: 96px; font-weight: 300; color: var(--mono-accent); line-height: 1; margin-bottom: 24px; }
+  .feature-title { font-family: var(--font-serif-jp); font-weight: 400; font-size: 28px; letter-spacing: 0.1em; margin-bottom: 24px; }
+  .feature-text { font-size: 15px; line-height: 2; color: var(--mono-muted); letter-spacing: 0.05em; }
+  .feature-img { aspect-ratio: 4/5; overflow: hidden; }
+  .feature-img img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.3); }
+  .services { background: var(--mono-ink); color: var(--mono-bg); padding: 140px 24px; }
+  .services .section-title { color: #fff; }
+  .services .section-subtitle { color: rgba(255,255,255,0.5); }
+  .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; max-width: 1200px; margin: 0 auto; }
+  .service-card { border: 1px solid rgba(255,255,255,0.15); padding: 48px 32px; text-align: center; transition: background 0.4s; }
+  .service-card:hover { background: rgba(255,255,255,0.03); }
+  .service-icon { font-family: var(--font-serif-en); font-size: 40px; color: var(--mono-accent); margin-bottom: 24px; }
+  .service-name { font-family: var(--font-serif-jp); font-weight: 400; font-size: 20px; letter-spacing: 0.15em; margin-bottom: 16px; }
+  .service-desc { font-size: 13px; color: rgba(255,255,255,0.6); letter-spacing: 0.05em; line-height: 2; }
+  .about-block { text-align: center; max-width: 800px; margin: 0 auto; }
+  .about-text { font-family: var(--font-serif-jp); font-weight: 300; font-size: 18px; line-height: 2.4; letter-spacing: 0.1em; margin-bottom: 48px; }
+  .cta-section { text-align: center; padding: 120px 24px; background: #F8F8F8; }
+  .cta-button { display: inline-block; font-family: var(--font-sans-en); font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; padding: 20px 56px; border: 1px solid var(--mono-ink); transition: all 0.3s; }
+  .cta-button:hover { background: var(--mono-ink); color: var(--mono-bg); }
+  .site-footer { background: var(--mono-ink); color: rgba(255,255,255,0.7); padding: 80px 24px 40px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; max-width: 1200px; margin: 0 auto 48px; }
+  .footer-logo { font-family: var(--font-serif-en); font-size: 24px; letter-spacing: 0.3em; color: #fff; margin-bottom: 20px; }
+  .footer-info { font-size: 13px; line-height: 2; }
+  .footer-heading { font-family: var(--font-sans-en); font-size: 12px; letter-spacing: 0.25em; text-transform: uppercase; color: #fff; margin-bottom: 20px; }
+  .footer-link-list li { margin-bottom: 12px; font-size: 13px; }
+  .footer-copy { text-align: center; font-size: 11px; letter-spacing: 0.2em; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); }
+  @media (max-width: 768px) {
+    .site-header { padding: 16px 20px; }
+    .site-nav { display: none; }
+    .feature-row { grid-template-columns: 1fr; gap: 32px; margin-bottom: 80px; direction: ltr; }
+    .service-grid { grid-template-columns: 1fr; gap: 24px; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .section { padding: 80px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-logo">LIFETIME</div>
+  <nav class="site-nav" aria-label="メインナビゲーション">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#showroom">Showroom</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-image">
+      <img src="https://source.unsplash.com/1920x1080/?luxury,apartment,interior,minimal" alt="新築マンションの上質なリビング">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">New Condominium Option Works</p>
+      <h1 class="hero-title">暮らしを、格別に。</h1>
+      <p class="hero-sub">A Lifetime Partner for Your New Home</p>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <h2 class="section-title">私たちについて</h2>
+    <p class="section-subtitle">Our Philosophy</p>
+    <div class="about-block">
+      <p class="about-text">新築マンションという人生の特別な一章に、上質という付加価値を。<br>ライフタイムサポートは埼玉・越谷を拠点に、入居前のオプション工事から長期メンテナンスまで、暮らしの全てに寄り添い続けます。</p>
+    </div>
+  </section>
+
+  <section class="section features">
+    <div class="feature-row">
+      <div>
+        <div class="feature-number">01</div>
+        <h3 class="feature-title">確かな品質、適正な価格</h3>
+        <p class="feature-text">大量仕入れと自社施工体制により、高品質な素材と施工を適正価格でご提供。妥協なき素材選定と、熟練職人による丁寧な仕事を、日常の一部にお届けします。</p>
+      </div>
+      <div class="feature-img">
+        <img src="https://source.unsplash.com/800x1000/?interior,design,minimal,japanese" alt="上質な内装">
+      </div>
+    </div>
+    <div class="feature-row">
+      <div>
+        <div class="feature-number">02</div>
+        <h3 class="feature-title">購入前から、ずっと。</h3>
+        <p class="feature-text">無料内覧会同行、チェックシート提供、入居後の定期メンテナンスまで。住まいを手に入れるその時から長い年月の先まで、ライフタイムで支え続けます。</p>
+      </div>
+      <div class="feature-img">
+        <img src="https://source.unsplash.com/800x1000/?consultation,advisor,luxury,home" alt="プロフェッショナルな接客">
+      </div>
+    </div>
+    <div class="feature-row">
+      <div>
+        <div class="feature-number">03</div>
+        <h3 class="feature-title">体感できる、ショールーム。</h3>
+        <p class="feature-text">カタログだけでは伝わらない素材の質感、空間の広がり。体験型ショールームでは、実際の施工事例を見て触れて、ご自宅に迎え入れる前の確信を得られます。</p>
+      </div>
+      <div class="feature-img">
+        <img src="https://source.unsplash.com/800x1000/?showroom,luxury,interior" alt="体験型ショールーム">
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="services">
+    <h2 class="section-title">Services</h2>
+    <p class="section-subtitle">Curated Options for Your Home</p>
+    <div class="service-grid">
+      <article class="service-card">
+        <div class="service-icon">I</div>
+        <h3 class="service-name">エコカラット</h3>
+        <p class="service-desc">デザイン性と機能性を兼ね備えた室内壁材。湿度調整と消臭で、上質な空気の質へ。</p>
+      </article>
+      <article class="service-card">
+        <div class="service-icon">II</div>
+        <h3 class="service-name">フロアコーティング</h3>
+        <p class="service-desc">床の美しさを長く保つプロのコーティング。日常の摩耗から、大切な空間を守ります。</p>
+      </article>
+      <article class="service-card">
+        <div class="service-icon">III</div>
+        <h3 class="service-name">各種コーティング</h3>
+        <p class="service-desc">水周り・クロス・白木など、用途に応じた専門コーティングをご提案。</p>
+      </article>
+      <article class="service-card">
+        <div class="service-icon">IV</div>
+        <h3 class="service-name">オーダー家具・ミラー</h3>
+        <p class="service-desc">空間に合わせた唯一無二のオーダーメイド。カーテンも含め、品格を整えます。</p>
+      </article>
+      <article class="service-card">
+        <div class="service-icon">V</div>
+        <h3 class="service-name">バルコニー・窓装飾</h3>
+        <p class="service-desc">バルコニータイルと窓ガラスフィルムで、外から内まで完成された住まいへ。</p>
+      </article>
+      <article class="service-card">
+        <div class="service-icon">VI</div>
+        <h3 class="service-name">ビルトイン家電</h3>
+        <p class="service-desc">食洗機・オーブン・IHヒーターなど、ビルトインで美しく機能的なキッチンへ。</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2 class="section-title">まずは、お気軽に。</h2>
+    <p class="section-subtitle">Contact</p>
+    <a href="#contact" class="cta-button">Consultation</a>
+  </section>
+</main>
+
+<footer id="contact" class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">LIFETIME</div>
+      <p class="footer-info">株式会社ライフタイムサポート<br>〒343-0806 埼玉県越谷市宮本町5-5-8<br>TEL 048-954-9105<br>受付 9:00–17:00 / 営業 9:00–18:00 / 年中無休</p>
+    </div>
+    <div>
+      <p class="footer-heading">Services</p>
+      <ul class="footer-link-list">
+        <li>エコカラット</li>
+        <li>フロアコーティング</li>
+        <li>オーダー家具</li>
+        <li>ビルトイン家電</li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-heading">Company</p>
+      <ul class="footer-link-list">
+        <li>About</li>
+        <li>Showroom</li>
+        <li>Blog</li>
+        <li>Contact</li>
+      </ul>
+    </div>
+  </div>
+  <p class="footer-copy">© LIFETIME SUPPORT. ALL RIGHTS RESERVED.</p>
+</footer>
+
+</body>
+</html>

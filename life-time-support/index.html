@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ライフタイムサポート — 初回提案 5パターン比較</title>
+<link rel="stylesheet" href="assets/common.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0A0A0A;
+    --surface: #1A1A1A;
+    --surface-2: #252525;
+    --text: #F5F5F5;
+    --muted: #9A9A9A;
+    --accent: #F59E0B;
+    --border: rgba(255,255,255,0.12);
+  }
+  body { font-family: "Inter", "Noto Sans JP", sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+  .top-bar { padding: 28px 48px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: var(--surface); }
+  .top-title { display: flex; align-items: baseline; gap: 16px; }
+  .top-title h1 { font-size: 20px; font-weight: 700; }
+  .top-title .client { color: var(--muted); font-size: 14px; }
+  .top-meta { font-size: 13px; color: var(--muted); }
+  .top-meta .by { color: var(--accent); font-weight: 600; }
+  .intro { padding: 64px 48px; max-width: 1200px; margin: 0 auto; }
+  .intro h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 700; line-height: 1.4; margin-bottom: 20px; }
+  .intro p { color: var(--muted); font-size: 16px; line-height: 2; max-width: 760px; }
+  .recommendation { background: linear-gradient(135deg, rgba(245,158,11,0.12), rgba(245,158,11,0.04)); border: 1px solid rgba(245,158,11,0.3); border-radius: 16px; padding: 24px 28px; margin-top: 32px; display: flex; align-items: flex-start; gap: 20px; max-width: 760px; }
+  .recommendation-star { font-size: 28px; }
+  .recommendation strong { color: var(--accent); }
+  .tabs { padding: 0 48px; display: flex; gap: 8px; border-bottom: 1px solid var(--border); overflow-x: auto; }
+  .tab-btn { padding: 16px 24px; background: transparent; color: var(--muted); border: none; font-size: 14px; font-weight: 500; cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.2s; white-space: nowrap; font-family: inherit; }
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .tab-btn.recommended::after { content: ' ★'; color: var(--accent); }
+  .preview-area { padding: 48px; max-width: 1400px; margin: 0 auto; }
+  .preview-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; flex-wrap: wrap; gap: 16px; }
+  .preview-title { font-size: clamp(24px, 3vw, 36px); font-weight: 700; line-height: 1.4; }
+  .preview-title .tag { display: block; font-size: 13px; color: var(--accent); font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px; }
+  .preview-actions { display: flex; gap: 12px; }
+  .btn { padding: 12px 24px; border-radius: 10px; font-size: 14px; font-weight: 600; border: 1px solid var(--border); color: var(--text); background: var(--surface); transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-primary { background: var(--accent); border-color: var(--accent); color: #0A0A0A; }
+  .btn-primary:hover { background: #F97316; color: #0A0A0A; }
+  .preview-frame { width: 100%; height: 80vh; background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 24px 60px rgba(0,0,0,0.4); }
+  .preview-frame iframe { width: 100%; height: 100%; border: none; }
+  .patterns-grid { padding: 48px; max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .pattern-meta { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; font-size: 13px; color: var(--muted); line-height: 1.9; }
+  .pattern-meta h4 { color: var(--text); font-size: 15px; margin-bottom: 12px; font-weight: 700; }
+  .pattern-meta .dot { display: inline-block; width: 14px; height: 14px; border-radius: 4px; margin-right: 8px; vertical-align: middle; border: 1px solid var(--border); }
+  .pattern-meta .label { color: var(--text); font-weight: 500; }
+  .footer-bar { padding: 32px 48px; border-top: 1px solid var(--border); text-align: center; font-size: 13px; color: var(--muted); background: var(--surface); margin-top: 48px; }
+  @media (max-width: 768px) {
+    .top-bar, .intro, .tabs, .preview-area, .patterns-grid, .footer-bar { padding-left: 20px; padding-right: 20px; }
+    .top-bar { flex-direction: column; align-items: flex-start; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="top-title">
+    <h1>ライフタイムサポート</h1>
+    <span class="client">— 5パターン初回提案 / トップページ案</span>
+  </div>
+  <div class="top-meta">Produced by <span class="by">アオ（WEBクリエイティブ部）</span> · 2026-04-17</div>
+</div>
+
+<section class="intro">
+  <h2>新築マンション入居者へ「ライフタイムの伴走者」として、<br>5つのブランド表現で試行する。</h2>
+  <p>既存サイトと事業特性を分析し、異なる軸で響く5パターンのトップページ案を作成しました。下のタブで切り替えて比較いただけます。提案段階のため、画像はすべて仮素材（Unsplash）を自動割当しています。</p>
+  <div class="recommendation">
+    <span class="recommendation-star">★</span>
+    <div>
+      <strong>アオ第一推奨は「④ Craft Warm（クラフト・温かみ型）」</strong><br>
+      ご家族の新生活という情緒価値と、素材・手仕事を重視する御社の事業性が最も噛み合うため。次点は ② Clean Medical（信頼感・現行サイトからの進化）。
+    </div>
+  </div>
+</section>
+
+<div class="tabs" role="tablist">
+  <button class="tab-btn active" data-target="01-luxury-mono.html" data-name="① Luxury Mono">① Luxury Mono</button>
+  <button class="tab-btn" data-target="02-clean-medical.html" data-name="② Clean Medical">② Clean Medical</button>
+  <button class="tab-btn" data-target="03-wa-modern.html" data-name="③ Wa-Modern">③ Wa-Modern</button>
+  <button class="tab-btn recommended" data-target="04-craft-warm.html" data-name="④ Craft Warm">④ Craft Warm</button>
+  <button class="tab-btn" data-target="05-artistic-void.html" data-name="⑤ Artistic Void">⑤ Artistic Void</button>
+</div>
+
+<section class="preview-area">
+  <div class="preview-header">
+    <div>
+      <h3 class="preview-title"><span class="tag" id="previewTag">PATTERN 01</span><span id="previewName">① Luxury Mono — ラグジュアリー・モノトーン</span></h3>
+    </div>
+    <div class="preview-actions">
+      <a href="#" class="btn" id="openNew" target="_blank" rel="noopener">新しいタブで開く ↗</a>
+    </div>
+  </div>
+  <div class="preview-frame">
+    <iframe id="previewFrame" src="01-luxury-mono.html" title="デザインプレビュー"></iframe>
+  </div>
+</section>
+
+<section class="patterns-grid">
+  <div class="pattern-meta">
+    <h4>① Luxury Mono</h4>
+    <p><span class="dot" style="background:#000"></span><span class="label">漆黒 + 純白 + 金茶</span></p>
+    <p>フォント: Noto Serif JP / Cormorant Garamond</p>
+    <p>世界観: 引き算の美学・高級ブランド</p>
+    <p>適合度: ★★★☆☆</p>
+  </div>
+  <div class="pattern-meta">
+    <h4>② Clean Medical</h4>
+    <p><span class="dot" style="background:#2B4C7E"></span><span class="label">白 + 信頼ブルー</span></p>
+    <p>フォント: Noto Sans JP / Inter</p>
+    <p>世界観: 清潔感・信頼・わかりやすさ</p>
+    <p>適合度: ★★★★☆ （次点）</p>
+  </div>
+  <div class="pattern-meta">
+    <h4>③ Wa-Modern</h4>
+    <p><span class="dot" style="background:#1A1A2E"></span><span class="label">深紺 + 金</span></p>
+    <p>フォント: Shippori Mincho / Cormorant</p>
+    <p>世界観: 志・品格・和モダン</p>
+    <p>適合度: ★★★☆☆</p>
+  </div>
+  <div class="pattern-meta" style="border-color: var(--accent);">
+    <h4>★ ④ Craft Warm（第一推奨）</h4>
+    <p><span class="dot" style="background:#3D2817"></span><span class="label">深ブラウン + 琥珀</span></p>
+    <p>フォント: Noto Serif JP / DM Serif Display</p>
+    <p>世界観: 手仕事・温もり・ファミリー共感</p>
+    <p>適合度: ★★★★★</p>
+  </div>
+  <div class="pattern-meta">
+    <h4>⑤ Artistic Void</h4>
+    <p><span class="dot" style="background:#F5F0E8; border:1px solid #666;"></span><span class="label">和紙 + 墨</span></p>
+    <p>フォント: Shippori Mincho / Cormorant</p>
+    <p>世界観: 間の美学・余白・個性派</p>
+    <p>適合度: ★★☆☆☆</p>
+  </div>
+</section>
+
+<div class="footer-bar">
+  Generated by /hp command · <strong>アオ</strong>（WEBクリエイティブ部）· LTSグループ AI社員システム
+</div>
+
+<script>
+  const buttons = document.querySelectorAll('.tab-btn');
+  const frame = document.getElementById('previewFrame');
+  const openNew = document.getElementById('openNew');
+  const previewName = document.getElementById('previewName');
+  const previewTag = document.getElementById('previewTag');
+  buttons.forEach((btn, idx) => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const target = btn.dataset.target;
+      frame.src = target;
+      openNew.href = target;
+      previewName.textContent = btn.dataset.name;
+      previewTag.textContent = `PATTERN 0${idx + 1}`;
+    });
+  });
+  openNew.href = '01-luxury-mono.html';
+</script>
+
+</body>
+</html>
