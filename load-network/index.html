@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>株式会社ロード — WEBサイトリニューアル 5パターン比較プレビュー</title>
+<meta name="description" content="株式会社ロード向け WEBサイトリニューアル初回提案。5つのデザインテイストを並べて比較できる切替プレビュー。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="./assets/common.css" />
+<style>
+  :root {
+    --bg: #0e1116;
+    --bg2: #161b22;
+    --line: #30363d;
+    --ink: #e6edf3;
+    --ink-mute: #8b949e;
+    --accent: #2f81f7;
+    --ok: #3fb950;
+  }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Noto Sans JP", "Inter", sans-serif;
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+  }
+  header {
+    padding: 24px 32px;
+    background: var(--bg2);
+    border-bottom: 1px solid var(--line);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+  }
+  .brand { display: flex; align-items: baseline; gap: 14px; }
+  .brand__mark { font-family: "Plus Jakarta Sans", sans-serif; font-weight: 700; font-size: 22px; color: var(--accent); letter-spacing: 0.1em; }
+  .brand__name { font-weight: 700; font-size: 15px; }
+  .brand__sub { font-size: 12px; color: var(--ink-mute); }
+  .meta { font-size: 12px; color: var(--ink-mute); display: flex; gap: 20px; flex-wrap: wrap; }
+
+  .tabs {
+    padding: 20px 32px;
+    background: var(--bg2);
+    border-bottom: 1px solid var(--line);
+    display: flex; gap: 8px; overflow-x: auto;
+  }
+  .tab {
+    flex: 0 0 auto;
+    padding: 12px 20px;
+    background: transparent;
+    color: var(--ink-mute);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .22s;
+    display: flex; align-items: center; gap: 10px;
+    white-space: nowrap;
+  }
+  .tab:hover { color: var(--ink); border-color: var(--ink-mute); }
+  .tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .tab .n { font-family: "Plus Jakarta Sans", sans-serif; font-weight: 700; font-size: 11px; opacity: 0.8; letter-spacing: 0.15em; }
+
+  .sub-actions { padding: 12px 32px; background: var(--bg2); border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .current { display: flex; align-items: center; gap: 12px; font-size: 13px; }
+  .current strong { font-size: 15px; }
+  .current .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 12px var(--ok); }
+  .actions { display: flex; gap: 8px; }
+  .btn {
+    padding: 8px 14px;
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all .2s;
+  }
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  .frame-wrap { flex: 1; background: #fff; position: relative; overflow: hidden; }
+  iframe { width: 100%; height: 100%; border: 0; display: block; background: #fff; }
+
+  /* Pattern card meta hover */
+  .tab__meta {
+    display: none;
+    position: absolute;
+    top: 100%; left: 0;
+    background: var(--bg2);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 11px;
+    color: var(--ink-mute);
+    width: 220px;
+    z-index: 10;
+    margin-top: 6px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <div class="brand__mark">LOAD</div>
+    <div>
+      <div class="brand__name">株式会社ロード</div>
+      <div class="brand__sub">WEB サイトリニューアル 初回提案 / 5パターン比較</div>
+    </div>
+  </div>
+  <div class="meta">
+    <div>提案元: LTS WEBクリエイティブ部「アオ」</div>
+    <div>対象: https://www.load.co.jp/</div>
+    <div>提案日: 2026-04-17</div>
+  </div>
+</header>
+
+<div class="tabs" id="tabs">
+  <button class="tab active" data-src="./01-luxury-mono.html" data-name="① Luxury Mono" data-note="ハイエンドBtoBの格を最大化">
+    <span class="n">01</span>
+    <span>Luxury Mono</span>
+  </button>
+  <button class="tab" data-src="./02-clean-medical.html" data-name="② Clean Medical" data-note="★推奨｜信頼×清潔×実用性">
+    <span class="n">02</span>
+    <span>Clean Medical <span style="color:#f7c03f">★</span></span>
+  </button>
+  <button class="tab" data-src="./03-wa-modern.html" data-name="③ Wa-Modern" data-note="志と誇りで差別化">
+    <span class="n">03</span>
+    <span>Wa-Modern</span>
+  </button>
+  <button class="tab" data-src="./04-craft-warm.html" data-name="④ Craft Warm" data-note="職人感・親しみやすさ">
+    <span class="n">04</span>
+    <span>Craft Warm</span>
+  </button>
+  <button class="tab" data-src="./05-artistic-void.html" data-name="⑤ Artistic Void" data-note="ブランディング特化・余白の美">
+    <span class="n">05</span>
+    <span>Artistic Void</span>
+  </button>
+</div>
+
+<div class="sub-actions">
+  <div class="current">
+    <span class="dot"></span>
+    <span>現在表示中: <strong id="currentName">① Luxury Mono</strong></span>
+    <span style="color:var(--ink-mute)" id="currentNote">ハイエンドBtoBの格を最大化</span>
+  </div>
+  <div class="actions">
+    <a class="btn" id="openNew" href="./01-luxury-mono.html" target="_blank" rel="noopener">新規タブで開く ↗</a>
+    <a class="btn" href="./README.md" target="_blank" rel="noopener">README を見る</a>
+  </div>
+</div>
+
+<div class="frame-wrap">
+  <iframe id="preview" src="./01-luxury-mono.html" title="プレビュー"></iframe>
+</div>
+
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const frame = document.getElementById('preview');
+  const nameEl = document.getElementById('currentName');
+  const noteEl = document.getElementById('currentNote');
+  const openNew = document.getElementById('openNew');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const src = tab.dataset.src;
+      frame.src = src;
+      openNew.href = src;
+      nameEl.textContent = tab.dataset.name;
+      noteEl.textContent = tab.dataset.note;
+    });
+  });
+</script>
+
+</body>
+</html>

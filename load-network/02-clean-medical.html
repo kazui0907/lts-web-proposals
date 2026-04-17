@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>株式会社ロード — Clean Medical 案 | 安心をつなぐ、ネットワークの主治医</title>
+<meta name="description" content="オフィスの通信ネットワークをワンストップで最適化する株式会社ロード。医療的な清潔感と信頼感を軸にしたクリーンデザイン案。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="./assets/common.css" />
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-soft: #f6f8fb;
+    --bg-warm: #f4efe8;
+    --ink: #1c2536;
+    --ink-mute: #64748b;
+    --brand: #2b4c7e;
+    --brand-dark: #1e3a6b;
+    --brand-light: #e7eef8;
+    --accent: #5a7f6f;
+    --line: #e5ebf2;
+  }
+  body {
+    font-family: "Noto Sans JP", "Inter", sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    font-size: 16px;
+    line-height: 1.8;
+  }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+  .en { font-family: "Plus Jakarta Sans", "Inter", sans-serif; }
+
+  /* Nav */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,255,255,0.94);
+    backdrop-filter: saturate(180%) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav__inner { max-width: 1200px; margin: 0 auto; padding: 18px 32px; display: flex; justify-content: space-between; align-items: center; }
+  .nav__logo { display: flex; align-items: baseline; gap: 10px; }
+  .nav__logo .mark { width: 36px; height: 36px; border-radius: 10px; background: var(--brand); color: #fff; display: grid; place-items: center; font-family: "Plus Jakarta Sans", sans-serif; font-weight: 700; font-size: 18px; }
+  .nav__logo .name { font-family: "Plus Jakarta Sans", sans-serif; font-weight: 700; font-size: 22px; letter-spacing: 0.08em; color: var(--brand); }
+  .nav__menu { display: flex; gap: 32px; font-size: 14px; font-weight: 500; }
+  .nav__menu a { position: relative; padding: 6px 0; }
+  .nav__menu a::after { content: ""; position: absolute; left: 50%; right: 50%; bottom: 0; height: 2px; background: var(--brand); transition: all .25s; }
+  .nav__menu a:hover::after { left: 0; right: 0; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 999px; font-weight: 600; font-size: 14px; transition: all .22s; }
+  .btn-primary { background: var(--brand); color: #fff; box-shadow: 0 6px 14px rgba(43,76,126,0.25); }
+  .btn-primary:hover { background: var(--brand-dark); transform: translateY(-2px); box-shadow: 0 10px 22px rgba(43,76,126,0.32); }
+  .btn-ghost { background: transparent; color: var(--brand); border: 1.5px solid var(--brand); }
+  .btn-ghost:hover { background: var(--brand-light); }
+  @media (max-width: 820px) { .nav__menu { display: none; } }
+
+  /* Hero */
+  .hero { padding: 80px 0 100px; background: linear-gradient(180deg, var(--brand-light) 0%, #fff 80%); position: relative; overflow: hidden; }
+  .hero__grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center; }
+  .hero__eyebrow { display: inline-flex; align-items: center; gap: 8px; background: #fff; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--line); font-size: 13px; color: var(--brand); font-weight: 600; margin-bottom: 28px; }
+  .hero__eyebrow .dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; }
+  .hero__title { font-size: clamp(30px, 4.4vw, 54px); font-weight: 700; line-height: 1.45; color: var(--ink); letter-spacing: 0.02em; margin-bottom: 24px; }
+  .hero__title em { font-style: normal; color: var(--brand); background: linear-gradient(180deg, transparent 60%, rgba(90,127,111,0.25) 60%); padding: 0 4px; }
+  .hero__sub { font-size: 17px; color: #455468; line-height: 2; margin-bottom: 36px; max-width: 540px; }
+  .hero__cta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; }
+  .hero__meta { display: flex; gap: 28px; font-size: 13px; color: var(--ink-mute); }
+  .hero__meta strong { color: var(--brand); font-family: "Plus Jakarta Sans", sans-serif; font-weight: 700; font-size: 24px; display: block; }
+  .hero__img { position: relative; }
+  .hero__img img { border-radius: 28px; aspect-ratio: 4/5; object-fit: cover; width: 100%; box-shadow: 0 30px 60px rgba(28,37,54,0.14); }
+  .hero__badge { position: absolute; left: -24px; bottom: 40px; background: #fff; padding: 18px 24px; border-radius: 18px; box-shadow: 0 18px 40px rgba(28,37,54,0.12); display: flex; align-items: center; gap: 14px; }
+  .hero__badge .icon { width: 44px; height: 44px; background: var(--brand-light); border-radius: 12px; display: grid; place-items: center; font-size: 22px; }
+  .hero__badge .txt { font-size: 12px; color: var(--ink-mute); line-height: 1.4; }
+  .hero__badge .txt strong { display: block; color: var(--ink); font-size: 14px; font-weight: 700; }
+  @media (max-width: 820px) { .hero__grid { grid-template-columns: 1fr; gap: 40px; } .hero__badge { left: 16px; bottom: 16px; } }
+
+  /* Pain points */
+  .pains { padding: 100px 0; background: #fff; }
+  .section-head { text-align: center; margin-bottom: 60px; }
+  .section-head .eyebrow { color: var(--brand); font-family: "Plus Jakarta Sans", sans-serif; font-weight: 700; letter-spacing: 0.25em; font-size: 12px; text-transform: uppercase; margin-bottom: 16px; }
+  .section-head h2 { font-size: clamp(26px, 3.6vw, 40px); font-weight: 700; line-height: 1.5; color: var(--ink); }
+  .pains__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .pain { background: var(--bg-soft); border-radius: 20px; padding: 36px; border: 1px solid var(--line); transition: all .25s; }
+  .pain:hover { transform: translateY(-4px); border-color: var(--brand); box-shadow: 0 18px 36px rgba(28,37,54,0.08); }
+  .pain__icon { width: 56px; height: 56px; border-radius: 16px; background: var(--brand-light); color: var(--brand); display: grid; place-items: center; font-size: 26px; margin-bottom: 20px; }
+  .pain__from { font-size: 13px; color: var(--ink-mute); font-weight: 600; margin-bottom: 8px; }
+  .pain__title { font-size: 22px; font-weight: 700; color: var(--ink); margin-bottom: 14px; }
+  .pain__arrow { font-family: "Plus Jakarta Sans", sans-serif; color: var(--accent); font-weight: 700; font-size: 14px; margin-bottom: 10px; }
+  .pain__to { font-size: 15px; color: var(--brand); font-weight: 600; margin-bottom: 18px; }
+  .pain__desc { font-size: 14px; color: #455468; line-height: 1.9; }
+  @media (max-width: 820px) { .pains__grid { grid-template-columns: 1fr; } }
+
+  /* Services */
+  .services { padding: 100px 0; background: var(--bg-soft); }
+  .svc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .svc { background: #fff; border-radius: 24px; overflow: hidden; border: 1px solid var(--line); transition: all .25s; }
+  .svc:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(28,37,54,0.08); }
+  .svc__img { aspect-ratio: 16/9; overflow: hidden; }
+  .svc__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+  .svc:hover .svc__img img { transform: scale(1.05); }
+  .svc__body { padding: 32px; }
+  .svc__no { font-family: "Plus Jakarta Sans", sans-serif; font-size: 13px; color: var(--brand); font-weight: 700; letter-spacing: 0.2em; margin-bottom: 10px; }
+  .svc__title { font-size: 22px; font-weight: 700; color: var(--ink); margin-bottom: 12px; }
+  .svc__desc { font-size: 14px; color: #455468; line-height: 1.9; margin-bottom: 18px; }
+  .svc__more { font-size: 13px; color: var(--brand); font-weight: 600; display: inline-flex; align-items: center; gap: 6px; }
+  .svc__more::after { content: "→"; transition: transform .25s; }
+  .svc:hover .svc__more::after { transform: translateX(4px); }
+  @media (max-width: 820px) { .svc-grid { grid-template-columns: 1fr; } }
+
+  /* Stats band */
+  .stats { padding: 72px 0; background: var(--brand); color: #fff; }
+  .stats__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+  .stats__n { font-family: "Plus Jakarta Sans", sans-serif; font-size: clamp(32px, 4vw, 46px); font-weight: 700; line-height: 1; margin-bottom: 10px; }
+  .stats__n span { font-size: 0.5em; font-weight: 500; margin-left: 4px; }
+  .stats__l { font-size: 13px; opacity: 0.85; letter-spacing: 0.08em; }
+  @media (max-width: 820px) { .stats__grid { grid-template-columns: repeat(2, 1fr); gap: 36px; } }
+
+  /* Trust */
+  .trust { padding: 100px 0; }
+  .trust__grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: center; }
+  .trust__img img { border-radius: 24px; aspect-ratio: 5/6; object-fit: cover; width: 100%; }
+  .trust__h { font-size: clamp(24px, 3.2vw, 36px); font-weight: 700; line-height: 1.5; color: var(--ink); margin-bottom: 24px; }
+  .trust__p { font-size: 16px; color: #455468; line-height: 2; margin-bottom: 18px; }
+  .trust__list { margin-top: 28px; display: grid; gap: 14px; }
+  .trust__list li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: var(--ink); }
+  .trust__list li::before { content: "✓"; flex: 0 0 24px; height: 24px; background: var(--accent); color: #fff; border-radius: 50%; display: grid; place-items: center; font-size: 13px; font-weight: 700; }
+  @media (max-width: 820px) { .trust__grid { grid-template-columns: 1fr; gap: 40px; } }
+
+  /* CTA */
+  .cta { padding: 100px 0; background: var(--bg-warm); text-align: center; }
+  .cta h2 { font-size: clamp(26px, 3.4vw, 38px); font-weight: 700; line-height: 1.6; margin-bottom: 16px; }
+  .cta p { font-size: 16px; color: #455468; margin-bottom: 36px; max-width: 580px; margin-left: auto; margin-right: auto; }
+  .cta__actions { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+  /* Footer */
+  footer { padding: 64px 0 28px; background: #0f1b31; color: #cbd5e0; }
+  .foot__grid { display: grid; grid-template-columns: 1.6fr repeat(3, 1fr); gap: 48px; margin-bottom: 48px; }
+  .foot__brand { font-family: "Plus Jakarta Sans", sans-serif; font-weight: 700; font-size: 24px; color: #fff; letter-spacing: 0.08em; margin-bottom: 12px; }
+  .foot__brand + p { font-size: 13px; line-height: 1.9; opacity: 0.75; }
+  .foot__t { font-size: 13px; color: #fff; font-weight: 700; margin-bottom: 16px; letter-spacing: 0.1em; }
+  .foot__info, .foot__menu { font-size: 13px; line-height: 2; }
+  .foot__info a, .foot__menu a { color: #cbd5e0; }
+  .foot__info a:hover, .foot__menu a:hover { color: #fff; }
+  .foot__copy { font-size: 12px; opacity: 0.6; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); text-align: center; }
+  @media (max-width: 820px) { .foot__grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <div class="nav__logo">
+      <div class="mark">L</div>
+      <div class="name">LOAD</div>
+    </div>
+    <ul class="nav__menu">
+      <li><a href="#pains">課題解決</a></li>
+      <li><a href="#services">サービス</a></li>
+      <li><a href="#trust">選ばれる理由</a></li>
+      <li><a href="#company">会社情報</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-primary">無料相談</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero__grid">
+      <div>
+        <div class="hero__eyebrow"><span class="dot"></span>オフィスネットワーク ワンストップサポート</div>
+        <h1 class="hero__title">
+          通信の<em>"困った"</em>を、<br>
+          今日、終わらせる。
+        </h1>
+        <p class="hero__sub">
+          株式会社ロードは、オフィスの光回線・LAN・Wi-Fi・クラウド接続までを一気通貫でサポート。通信の「不便・不安・不満」を、「便利・安心・満足」に変えるネットワークの主治医です。
+        </p>
+        <div class="hero__cta">
+          <a href="#contact" class="btn btn-primary">無料ネットワーク診断を受ける</a>
+          <a href="#services" class="btn btn-ghost">サービスを見る</a>
+        </div>
+        <div class="hero__meta">
+          <div><strong>03-6409-0202</strong>お問い合わせ窓口（平日 9:00-18:00）</div>
+        </div>
+      </div>
+      <div class="hero__img">
+        <img src="https://loremflickr.com/1200/1500/engineer,network,support,office" alt="ロードのネットワークエンジニア" />
+        <div class="hero__badge">
+          <div class="icon">🛡️</div>
+          <div class="txt"><strong>専任エンジニア制</strong>一社一担当で伴走</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pains" class="pains">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Why LOAD</div>
+      <h2>「3つの不」を、「3つの満」に<br>変えていくのが、ロードの仕事です。</h2>
+    </div>
+    <div class="pains__grid">
+      <div class="pain">
+        <div class="pain__icon">⚙️</div>
+        <div class="pain__from">Before</div>
+        <div class="pain__title">不便</div>
+        <div class="pain__arrow">→</div>
+        <div class="pain__to">便利</div>
+        <p class="pain__desc">窓口がバラバラで連絡がつかない・手続きが煩雑——そんなストレスを、貴社専任の一窓口に集約。対応スピードが劇的に変わります。</p>
+      </div>
+      <div class="pain">
+        <div class="pain__icon">🛡️</div>
+        <div class="pain__from">Before</div>
+        <div class="pain__title">不安</div>
+        <div class="pain__arrow">→</div>
+        <div class="pain__to">安心</div>
+        <p class="pain__desc">突然のネット不通・原因不明の速度低下。遠隔サポート＋駆けつけ保守で、業務を止めさせません。</p>
+      </div>
+      <div class="pain">
+        <div class="pain__icon">💡</div>
+        <div class="pain__from">Before</div>
+        <div class="pain__title">不満</div>
+        <div class="pain__arrow">→</div>
+        <div class="pain__to">満足</div>
+        <p class="pain__desc">「もっと速く、もっと安く」という当たり前の要望に、キャリア中立の視点で本当に最適な回答を。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="services">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Services</div>
+      <h2>オフィスの通信を、<br>まるごと任せてください。</h2>
+    </div>
+    <div class="svc-grid">
+      <div class="svc">
+        <div class="svc__img"><img src="https://loremflickr.com/1200/675/fiber,cable,infrastructure" alt="ロード光" /></div>
+        <div class="svc__body">
+          <div class="svc__no">01 / LOAD HIKARI</div>
+          <h3 class="svc__title">ロード光</h3>
+          <p class="svc__desc">法人向け光回線・ビジネスフォン・クラウドPBXを一本化。キャリア中立で最適な回線を選定し、コスト削減と速度改善を両立します。</p>
+          <a href="#" class="svc__more">詳しく見る</a>
+        </div>
+      </div>
+      <div class="svc">
+        <div class="svc__img"><img src="https://loremflickr.com/1200/675/network,server,technology" alt="ネットワークインフラ" /></div>
+        <div class="svc__body">
+          <div class="svc__no">02 / INFRASTRUCTURE</div>
+          <h3 class="svc__title">通信インフラ構築・保守</h3>
+          <p class="svc__desc">LAN / Wi-Fi / VPN / クラウド接続まで、拠点ネットワークの設計・構築・運用を一気通貫でサポート。多拠点展開もお任せください。</p>
+          <a href="#" class="svc__more">詳しく見る</a>
+        </div>
+      </div>
+      <div class="svc">
+        <div class="svc__img"><img src="https://loremflickr.com/1200/675/it,support,remote,helpdesk" alt="遠隔サポート" /></div>
+        <div class="svc__body">
+          <div class="svc__no">03 / REMOTE SUPPORT</div>
+          <h3 class="svc__title">遠隔サポート（TeamViewer）</h3>
+          <p class="svc__desc">電話を切る前に、画面越しで即対応。原因切り分けから復旧までを最短動線で。駆けつけ対応も東日本・西日本でカバー。</p>
+          <a href="#" class="svc__more">詳しく見る</a>
+        </div>
+      </div>
+      <div class="svc">
+        <div class="svc__img"><img src="https://loremflickr.com/1200/675/consulting,business,strategy,office" alt="ネットワークコンサルティング" /></div>
+        <div class="svc__body">
+          <div class="svc__no">04 / CONSULTING</div>
+          <h3 class="svc__title">ネットワークコンサルティング</h3>
+          <p class="svc__desc">現状のネットワークを可視化し、コスト・速度・冗長性のベストバランスをご提案。IT担当者不在の企業でも安心して任せられます。</p>
+          <a href="#" class="svc__more">詳しく見る</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="container">
+    <div class="stats__grid">
+      <div><div class="stats__n">3<span>分</span></div><div class="stats__l">遠隔サポート平均初動</div></div>
+      <div><div class="stats__n">20<span>%</span></div><div class="stats__l">通信コスト平均削減</div></div>
+      <div><div class="stats__n">99.9<span>%</span></div><div class="stats__l">契約継続率</div></div>
+      <div><div class="stats__n">1<span>名</span></div><div class="stats__l">貴社専任エンジニア</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="trust" class="trust">
+  <div class="container">
+    <div class="trust__grid">
+      <div class="trust__img"><img src="https://loremflickr.com/1000/1200/business,team,tokyo,meeting" alt="ロードのチーム" /></div>
+      <div>
+        <div class="section-head" style="text-align:left;margin-bottom:28px">
+          <div class="eyebrow">What makes us different</div>
+        </div>
+        <h3 class="trust__h">「同じ顔が、同じ窓口で、ずっと応える。」<br>それが、ロード品質。</h3>
+        <p class="trust__p">大手通信事業者のコールセンターでは、毎回担当者が変わり、毎回一から説明が必要です。ロードでは、一社につき専任のネットワークエンジニアを配置。貴社環境を熟知した"主治医"が、長期的に伴走します。</p>
+        <ul class="trust__list">
+          <li>専任エンジニア制で、毎回同じ担当者が対応</li>
+          <li>キャリア中立で最適な通信環境を設計</li>
+          <li>平時の運用から緊急時の駆けつけまで一窓口</li>
+          <li>契約後も通信コスト・速度の定期見直しを提供</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="cta">
+  <div class="container">
+    <h2>まずは、無料のネットワーク診断から。</h2>
+    <p>現状の通信契約・配線・Wi-Fi 環境をヒアリングし、コスト削減・速度改善の余地を可視化。ご提案まで無料です。</p>
+    <div class="cta__actions">
+      <a href="tel:0364090202" class="btn btn-primary">お電話で相談 03-6409-0202</a>
+      <a href="https://www.load.co.jp/" class="btn btn-ghost">資料請求フォーム</a>
+    </div>
+  </div>
+</section>
+
+<footer id="company">
+  <div class="container">
+    <div class="foot__grid">
+      <div>
+        <div class="foot__brand">LOAD</div>
+        <p>株式会社ロード<br>オフィスネットワーク コンサルティング＆サポート</p>
+      </div>
+      <div>
+        <div class="foot__t">Office</div>
+        <div class="foot__info">
+          〒141-0022<br>
+          東京都品川区東五反田<br>5-21-15 メタリオンOSビル
+        </div>
+      </div>
+      <div>
+        <div class="foot__t">Contact</div>
+        <div class="foot__info">
+          TEL 03-6409-0202<br>
+          FAX 03-6409-0212<br>
+          <a href="https://www.load.co.jp/">www.load.co.jp</a>
+        </div>
+      </div>
+      <div>
+        <div class="foot__t">Service</div>
+        <div class="foot__menu">
+          <div>ロード光</div>
+          <div>通信インフラ保守</div>
+          <div>遠隔サポート</div>
+          <div>ネットワーク診断</div>
+        </div>
+      </div>
+    </div>
+    <div class="foot__copy">© Load Inc. All Rights Reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>

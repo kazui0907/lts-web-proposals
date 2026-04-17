@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>株式会社ロード — Artistic Void 案 | 余白が、通信を語る</title>
+<meta name="description" content="オフィスの通信ネットワークをワンストップで最適化する株式会社ロード。「間」の美学を軸にしたアート・余白型デザイン案。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Inter:wght@300;400&family=Noto+Sans+JP:wght@200;300;400&family=Shippori+Mincho:wght@300;400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="./assets/common.css" />
+<style>
+  :root {
+    --paper: #f5f0e8;
+    --paper-deep: #eee7d8;
+    --ink: #1a1a1a;
+    --ink-mute: #4a4a4a;
+    --sumi: #0a0a0a;
+    --crimson: #8b0000;
+    --gold: #d4af37;
+  }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 300;
+    line-height: 2.1;
+  }
+  .mincho { font-family: "Shippori Mincho", "Noto Serif JP", serif; }
+  .serif-en { font-family: "Cormorant Garamond", serif; }
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+  .void { padding: 180px 0; }
+
+  /* Nav — minimal */
+  .nav {
+    position: fixed; inset: 0 0 auto 0; z-index: 50;
+    padding: 32px 40px;
+    display: flex; justify-content: space-between; align-items: center;
+    mix-blend-mode: difference;
+    color: #fff;
+  }
+  .nav__logo { font-family: "Cormorant Garamond", serif; font-weight: 400; font-size: 18px; letter-spacing: 0.55em; text-transform: uppercase; }
+  .nav__burger { display: flex; flex-direction: column; gap: 6px; cursor: pointer; }
+  .nav__burger span { display: block; width: 32px; height: 1px; background: currentColor; }
+
+  /* Hero */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr auto 1fr;
+    position: relative;
+    padding: 120px 40px 80px;
+  }
+  .hero__kanji {
+    position: absolute;
+    left: 8%; top: 50%;
+    transform: translateY(-50%);
+    font-family: "Shippori Mincho", serif;
+    font-weight: 300;
+    font-size: clamp(200px, 30vw, 420px);
+    line-height: 0.9;
+    color: var(--sumi);
+    letter-spacing: -0.05em;
+    pointer-events: none;
+    user-select: none;
+  }
+  .hero__art {
+    position: absolute;
+    right: 10%; top: 50%;
+    transform: translateY(-50%);
+    width: 34vw; max-width: 480px; min-width: 280px;
+    aspect-ratio: 3/4;
+  }
+  .hero__art img {
+    width: 100%; height: 100%; object-fit: cover;
+    filter: grayscale(100%) contrast(1.1);
+  }
+  .hero__art figcaption {
+    margin-top: 16px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    color: var(--ink-mute);
+    text-align: right;
+  }
+  .hero__foot {
+    align-self: end;
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-top: 40px;
+    border-top: 1px solid rgba(26,26,26,0.2);
+  }
+  .hero__tag { font-family: "Shippori Mincho", serif; font-size: 18px; letter-spacing: 0.35em; font-weight: 400; }
+  .hero__tag-en { font-family: "Cormorant Garamond", serif; font-size: 13px; letter-spacing: 0.4em; color: var(--ink-mute); text-transform: uppercase; }
+  .hero__num { font-family: "Cormorant Garamond", serif; font-size: 13px; letter-spacing: 0.35em; color: var(--ink-mute); }
+  @media (max-width: 820px) {
+    .hero__kanji { font-size: 50vw; left: 5%; opacity: 0.4; }
+    .hero__art { right: 5%; width: 70vw; max-width: none; }
+    .hero__foot { flex-direction: column; gap: 16px; align-items: flex-start; }
+  }
+
+  /* Scroll tell section */
+  .manifesto {
+    background: var(--paper);
+    padding: 220px 0;
+    display: grid;
+    place-items: center;
+    text-align: center;
+  }
+  .manifesto .num {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 14px;
+    letter-spacing: 0.55em;
+    color: var(--crimson);
+    text-transform: uppercase;
+    margin-bottom: 60px;
+  }
+  .manifesto blockquote {
+    font-family: "Shippori Mincho", serif;
+    font-weight: 300;
+    font-size: clamp(22px, 3vw, 40px);
+    line-height: 2.4;
+    letter-spacing: 0.15em;
+    color: var(--sumi);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .manifesto blockquote em {
+    font-style: normal;
+    font-weight: 500;
+    color: var(--crimson);
+    padding: 0 0.3em;
+  }
+
+  /* Concept — single big word */
+  .concept {
+    padding: 220px 0;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .concept__kanji {
+    font-family: "Shippori Mincho", serif;
+    font-weight: 300;
+    font-size: clamp(180px, 22vw, 320px);
+    line-height: 0.85;
+    color: var(--sumi);
+    letter-spacing: 0;
+    text-align: center;
+  }
+  .concept__kanji small {
+    display: block;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 400;
+    font-size: 0.08em;
+    letter-spacing: 0.5em;
+    color: var(--gold);
+    margin-top: 24px;
+    text-transform: uppercase;
+  }
+  .concept__body { padding-right: 5%; }
+  .concept__body .eyebrow { font-family: "Cormorant Garamond", serif; font-size: 13px; letter-spacing: 0.55em; color: var(--crimson); text-transform: uppercase; margin-bottom: 28px; }
+  .concept__body h2 { font-family: "Shippori Mincho", serif; font-weight: 400; font-size: clamp(28px, 3vw, 40px); line-height: 1.9; letter-spacing: 0.12em; margin-bottom: 36px; }
+  .concept__body p { font-size: 15px; line-height: 2.3; color: var(--ink-mute); margin-bottom: 22px; letter-spacing: 0.06em; }
+  @media (max-width: 820px) { .concept { grid-template-columns: 1fr; gap: 60px; } }
+
+  /* Works — asymmetric */
+  .works {
+    padding: 200px 0;
+    background: var(--paper-deep);
+  }
+  .works__head { text-align: center; margin-bottom: 120px; }
+  .works__head .eyebrow { font-family: "Cormorant Garamond", serif; font-size: 13px; letter-spacing: 0.55em; color: var(--crimson); text-transform: uppercase; margin-bottom: 20px; }
+  .works__head h2 { font-family: "Shippori Mincho", serif; font-weight: 300; font-size: clamp(40px, 5vw, 64px); letter-spacing: 0.3em; color: var(--sumi); }
+  .work {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    margin-bottom: 160px;
+    align-items: center;
+  }
+  .work:nth-child(odd) .work__img { grid-column: 1 / 7; }
+  .work:nth-child(odd) .work__body { grid-column: 8 / 13; }
+  .work:nth-child(even) .work__img { grid-column: 7 / 13; grid-row: 1; }
+  .work:nth-child(even) .work__body { grid-column: 1 / 6; grid-row: 1; }
+  .work__img img { width: 100%; aspect-ratio: 4/5; object-fit: cover; filter: grayscale(100%) contrast(1.05); }
+  .work__no { font-family: "Cormorant Garamond", serif; font-size: 14px; letter-spacing: 0.45em; color: var(--crimson); margin-bottom: 24px; }
+  .work__kanji { font-family: "Shippori Mincho", serif; font-weight: 300; font-size: clamp(48px, 6vw, 88px); line-height: 1; color: var(--sumi); margin-bottom: 28px; letter-spacing: 0.05em; }
+  .work__en { font-family: "Cormorant Garamond", serif; font-size: 15px; letter-spacing: 0.35em; color: var(--ink-mute); margin-bottom: 30px; text-transform: uppercase; }
+  .work__body p { font-size: 15px; line-height: 2.2; color: var(--ink); letter-spacing: 0.06em; }
+  @media (max-width: 820px) {
+    .work, .work:nth-child(odd), .work:nth-child(even) { grid-template-columns: 1fr; grid-row: auto; }
+    .work:nth-child(odd) .work__img, .work:nth-child(even) .work__img { grid-column: 1 / -1; grid-row: auto; margin-bottom: 32px; }
+    .work:nth-child(odd) .work__body, .work:nth-child(even) .work__body { grid-column: 1 / -1; grid-row: auto; }
+  }
+
+  /* Void quote */
+  .void-quote {
+    padding: 260px 0;
+    text-align: center;
+    background: var(--paper);
+  }
+  .void-quote p { font-family: "Shippori Mincho", serif; font-weight: 300; font-size: clamp(24px, 3.2vw, 40px); line-height: 2.4; letter-spacing: 0.25em; color: var(--sumi); }
+  .void-quote .mark { display: inline-block; color: var(--crimson); font-weight: 500; padding: 0 0.3em; }
+
+  /* CTA */
+  .cta {
+    padding: 200px 0;
+    text-align: center;
+    background: var(--sumi);
+    color: var(--paper);
+  }
+  .cta__kanji { font-family: "Shippori Mincho", serif; font-weight: 300; font-size: clamp(80px, 10vw, 160px); line-height: 1; color: var(--gold); margin-bottom: 56px; letter-spacing: 0.1em; }
+  .cta__sub { font-family: "Cormorant Garamond", serif; font-size: 14px; letter-spacing: 0.6em; color: rgba(255,255,255,0.55); text-transform: uppercase; margin-bottom: 40px; }
+  .cta__phone { font-family: "Cormorant Garamond", serif; font-size: clamp(28px, 4vw, 44px); letter-spacing: 0.25em; color: var(--paper); margin-bottom: 24px; display: inline-block; }
+  .cta__phone:hover { color: var(--gold); }
+  .cta__addr { font-size: 13px; letter-spacing: 0.12em; color: rgba(255,255,255,0.55); line-height: 2; }
+
+  /* Footer */
+  footer { background: var(--sumi); color: rgba(255,255,255,0.45); padding: 60px 0 32px; border-top: 1px solid rgba(255,255,255,0.08); }
+  .foot__grid { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 32px; margin-bottom: 40px; }
+  .foot__brand { font-family: "Cormorant Garamond", serif; font-size: 22px; letter-spacing: 0.5em; color: var(--paper); text-transform: uppercase; }
+  .foot__info { font-size: 12px; line-height: 2; letter-spacing: 0.1em; }
+  .foot__info a { color: inherit; }
+  .foot__copy { text-align: center; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); font-family: "Cormorant Garamond", serif; font-size: 11px; letter-spacing: 0.45em; text-transform: uppercase; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__logo">Load</div>
+  <div class="nav__burger"><span></span><span></span><span></span></div>
+</nav>
+
+<section class="hero">
+  <div></div>
+  <div class="hero__kanji">間</div>
+  <figure class="hero__art">
+    <img src="https://loremflickr.com/1200/1600/network,light,minimal,abstract" alt="余白の中の通信" />
+    <figcaption>Network as Silence, 2026</figcaption>
+  </figure>
+  <div class="hero__foot">
+    <div>
+      <div class="hero__tag">滞りなく、流れる。</div>
+      <div class="hero__tag-en">Unbroken Connection</div>
+    </div>
+    <div class="hero__num">— № 01 / Load Inc.</div>
+  </div>
+</section>
+
+<section class="manifesto">
+  <div class="container">
+    <div class="num">Manifesto — 01</div>
+    <blockquote class="mincho">
+      良い通信とは、<br>
+      <em>在ることを忘れる</em>ほど、<br>
+      静かであること。
+    </blockquote>
+  </div>
+</section>
+
+<section class="concept container">
+  <div class="concept__kanji">
+    静
+    <small>Stillness in Flow</small>
+  </div>
+  <div class="concept__body">
+    <div class="eyebrow">— Philosophy</div>
+    <h2 class="mincho">通信は、<br>意識されない時が、<br>最も美しい。</h2>
+    <p>会議は途切れず、データは流れ続け、誰も何も言わない。その静けさこそが、私たちロードの目指す完成形です。</p>
+    <p>通信の「不」——不便・不安・不満——はどれも、通信が前に出てきてしまっている状態です。それを、意識の外に追いやる。裏側に退かせる。それが仕事。</p>
+    <p>だから私たちは、派手な機能や声高な営業の代わりに、ただ、日々の静けさを守り続けます。</p>
+  </div>
+</section>
+
+<section class="works">
+  <div class="container">
+    <div class="works__head">
+      <div class="eyebrow">Our Works</div>
+      <h2 class="mincho">業</h2>
+    </div>
+
+    <article class="work">
+      <div class="work__img"><img src="https://loremflickr.com/1200/1500/fiber,light,minimal" alt="ロード光" /></div>
+      <div class="work__body">
+        <div class="work__no">№ 01</div>
+        <div class="work__kanji mincho">光</div>
+        <div class="work__en">Load Hikari</div>
+        <p>法人向けの光回線と通話を、貴社の仕事の流れに沿って仕立てる。キャリアは道具であって、目的ではない。</p>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="work__img"><img src="https://loremflickr.com/1200/1500/infrastructure,minimal,lines" alt="インフラ" /></div>
+      <div class="work__body">
+        <div class="work__no">№ 02</div>
+        <div class="work__kanji mincho">基</div>
+        <div class="work__en">Infrastructure</div>
+        <p>LAN・Wi-Fi・VPN・クラウド。見えない土台こそ、手を抜かない。静けさは、丁寧さの結晶です。</p>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="work__img"><img src="https://loremflickr.com/1200/1500/engineer,quiet,room" alt="遠隔サポート" /></div>
+      <div class="work__body">
+        <div class="work__no">№ 03</div>
+        <div class="work__kanji mincho">即</div>
+        <div class="work__en">Remote Support</div>
+        <p>電話を切らずに、画面を共にし、解く。問題が現れた瞬間に消えていく——その潔さが、安心の正体です。</p>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="work__img"><img src="https://loremflickr.com/1200/1500/blueprint,minimal,plan" alt="診断" /></div>
+      <div class="work__body">
+        <div class="work__no">№ 04</div>
+        <div class="work__kanji mincho">診</div>
+        <div class="work__en">Network Consulting</div>
+        <p>現状を、ただ丁寧に見る。見えれば、選べる。選べれば、変わる。診断は無料で承ります。</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="void-quote">
+  <div class="container">
+    <p class="mincho">
+      通信に、<br>
+      <span class="mark">意識を向けずに</span>済む日常を、<br>
+      ロードは、つくっています。
+    </p>
+  </div>
+</section>
+
+<section id="contact" class="cta">
+  <div class="container">
+    <div class="cta__sub">Contact</div>
+    <div class="cta__kanji mincho">問</div>
+    <a href="tel:0364090202" class="cta__phone serif-en">03 — 6409 — 0202</a>
+    <div class="cta__addr">
+      〒141-0022 東京都品川区東五反田 5-21-15 メタリオンOSビル<br>
+      Load Inc. / 平日 9:00 – 18:00
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot__grid">
+      <div class="foot__brand">Load</div>
+      <div class="foot__info">
+        〒141-0022 東京都品川区東五反田 5-21-15 メタリオンOSビル<br>
+        TEL 03-6409-0202 / FAX 03-6409-0212<br>
+        <a href="https://www.load.co.jp/">www.load.co.jp</a>
+      </div>
+    </div>
+    <div class="foot__copy">© Load Inc.</div>
+  </div>
+</footer>
+
+</body>
+</html>
