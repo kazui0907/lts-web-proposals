@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>株式会社永作 — Artistic Void 案</title>
+  <meta name="description" content="1945年創業、茨城県鹿嶋市の食品卸問屋・株式会社永作。余白の中に80年の歴史と誠実さが宿る。醤油・味噌・缶詰・飲料を食品スーパーへ届ける、静かな使命感。">
+  <link rel="stylesheet" href="assets/common.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;800&family=Noto+Sans+JP:wght@300;400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <style>
+    /* ===== ARTISTIC VOID — 間の美学・老舗の静謐・余白が語る ===== */
+    :root {
+      --washi: #F5F0E8;
+      --washi-dark: #EDE5D4;
+      --ink: #1A1A1A;
+      --ink-light: #4A4A4A;
+      --ink-dim: rgba(26,26,26,0.45);
+      --gold-mud: #D4AF37;
+      --shu: #8B0000;
+      --border: rgba(26,26,26,0.12);
+    }
+
+    html {
+      background: var(--washi);
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      color: var(--ink);
+      background: var(--washi);
+      overflow-x: hidden;
+    }
+
+    /* ---------- NAV ---------- */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 24px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      mix-blend-mode: normal;
+      background: rgba(245,240,232,0.92);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav__logo {
+      font-family: 'Shippori Mincho', serif;
+      font-weight: 400;
+      font-size: 0.9rem;
+      letter-spacing: 0.25em;
+      color: var(--ink);
+    }
+
+    .nav__menu-btn {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.4em;
+      color: var(--ink-light);
+      text-transform: uppercase;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 8px;
+      min-height: 44px;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 6% 80px;
+      position: relative;
+      text-align: center;
+    }
+
+    /* 背景に薄く「永」の字 */
+    .hero::before {
+      content: '永';
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Shippori Mincho', serif;
+      font-size: 60vw;
+      color: rgba(26,26,26,0.025);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+    }
+
+    .hero__en {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 0.65rem;
+      letter-spacing: 0.55em;
+      color: var(--ink-dim);
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero__kanji {
+      font-family: 'Shippori Mincho', serif;
+      font-weight: 800;
+      font-size: clamp(7rem, 20vw, 16rem);
+      line-height: 1;
+      color: var(--ink);
+      letter-spacing: -0.05em;
+      margin-bottom: 2.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero__tagline {
+      font-family: 'Shippori Mincho', serif;
+      font-weight: 400;
+      font-size: clamp(0.9rem, 2vw, 1.2rem);
+      letter-spacing: 0.35em;
+      color: var(--ink-light);
+      margin-bottom: 3rem;
+      position: relative;
+      z-index: 1;
+      line-height: 2;
+    }
+
+    .hero__tagline em {
+      color: var(--shu);
+      font-style: normal;
+    }
+
+    .hero__scroll {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.35em;
+      color: var(--ink-dim);
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .hero__scroll::after {
+      content: '';
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, var(--ink-dim), transparent);
+    }
+
+    /* ---------- DIVIDER ---------- */
+    .thin-line {
+      height: 1px;
+      background: var(--border);
+      margin: 0 6%;
+    }
+
+    /* ---------- INTRO ---------- */
+    .intro {
+      padding: 120px 6%;
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .intro__en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.5em;
+      color: var(--ink-dim);
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .intro__text {
+      font-family: 'Shippori Mincho', serif;
+      font-weight: 400;
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      line-height: 2.4;
+      letter-spacing: 0.1em;
+      color: var(--ink-light);
+    }
+
+    .intro__text em {
+      color: var(--ink);
+      font-style: normal;
+    }
+
+    /* ---------- FEATURES ---------- */
+    .features {
+      padding: 80px 6% 120px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .features__en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.5em;
+      color: var(--ink-dim);
+      text-transform: uppercase;
+      margin-bottom: 4rem;
+      display: block;
+      text-align: center;
+    }
+
+    .feature-item {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 3rem;
+      padding: 3rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .feature-item:last-child {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .feature-item__num {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 2.5rem;
+      color: var(--ink-dim);
+      line-height: 1;
+      text-align: right;
+    }
+
+    .feature-item__content {}
+
+    .feature-item__title {
+      font-family: 'Shippori Mincho', serif;
+      font-weight: 500;
+      font-size: 1rem;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.8rem;
+      color: var(--ink);
+    }
+
+    .feature-item__text {
+      font-size: 0.82rem;
+      color: var(--ink-light);
+      line-height: 2.2;
+    }
+
+    /* ---------- PRODUCTS ---------- */
+    .products {
+      background: var(--washi-dark);
+      padding: 120px 6%;
+    }
+
+    .products__header {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+
+    .products__en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.5em;
+      color: var(--ink-dim);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .products__title {
+      font-family: 'Shippori Mincho', serif;
+      font-weight: 400;
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      letter-spacing: 0.2em;
+      color: var(--ink);
+      line-height: 2;
+    }
+
+    .products__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .product-item {
+      padding: 3rem 2rem;
+      border-right: 1px solid var(--border);
+      text-align: center;
+      transition: background 0.4s;
+    }
+
+    .product-item:last-child {
+      border-right: none;
+    }
+
+    .product-item:hover {
+      background: rgba(26,26,26,0.03);
+    }
+
+    .product-item__image {
+      height: 120px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+
+    .product-item__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: sepia(30%) contrast(1.05);
+    }
+
+    .product-item__jp {
+      font-family: 'Shippori Mincho', serif;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+
+    .product-item__en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.3em;
+      color: var(--ink-dim);
+      text-transform: uppercase;
+    }
+
+    /* ---------- HISTORY ---------- */
+    .history {
+      padding: 120px 6%;
+    }
+
+    .history__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .history__image-side {}
+
+    .history__image {
+      height: 500px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .history__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: sepia(40%) contrast(1.1) brightness(0.95);
+    }
+
+    .history__year-mark {
+      position: absolute;
+      bottom: 2rem;
+      right: 2rem;
+      text-align: right;
+    }
+
+    .history__year-mark .year {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 1.8rem;
+      color: var(--washi);
+      letter-spacing: 0.1em;
+    }
+
+    .history__year-mark .label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.55rem;
+      letter-spacing: 0.4em;
+      color: rgba(245,240,232,0.6);
+      text-transform: uppercase;
+    }
+
+    .history__text-side {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .history__en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.5em;
+      color: var(--ink-dim);
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .history__title {
+      font-family: 'Shippori Mincho', serif;
+      font-weight: 600;
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      letter-spacing: 0.12em;
+      line-height: 1.8;
+      color: var(--ink);
+      margin-bottom: 2rem;
+    }
+
+    .history__body {
+      font-size: 0.85rem;
+      color: var(--ink-light);
+      line-height: 2.5;
+      margin-bottom: 3rem;
+    }
+
+    .timeline-list {
+      border-top: 1px solid var(--border);
+    }
+
+    .timeline-entry {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 2rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+
+    .timeline-entry__year {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      color: var(--shu);
+      padding-top: 2px;
+    }
+
+    .timeline-entry__text {
+      font-size: 0.82rem;
+      color: var(--ink-light);
+      line-height: 2;
+    }
+
+    /* ---------- CTA ---------- */
+    .cta {
+      padding: 160px 6%;
+      text-align: center;
+      position: relative;
+    }
+
+    .cta__en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.5em;
+      color: var(--ink-dim);
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+    }
+
+    .cta__title {
+      font-family: 'Shippori Mincho', serif;
+      font-weight: 400;
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      letter-spacing: 0.2em;
+      line-height: 2;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .cta__sub {
+      font-size: 0.82rem;
+      color: var(--ink-dim);
+      line-height: 2.2;
+      margin-bottom: 3.5rem;
+    }
+
+    .cta__buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .btn-ink {
+      font-family: 'Shippori Mincho', serif;
+      font-weight: 400;
+      font-size: 0.82rem;
+      letter-spacing: 0.25em;
+      color: var(--washi);
+      background: var(--ink);
+      padding: 18px 52px;
+      min-height: 56px;
+      display: inline-flex;
+      align-items: center;
+      transition: background 0.4s;
+    }
+
+    .btn-ink:hover {
+      background: var(--ink-light);
+    }
+
+    .btn-outline-ink {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.25em;
+      color: var(--ink);
+      border: 1px solid var(--border);
+      padding: 18px 52px;
+      min-height: 56px;
+      display: inline-flex;
+      align-items: center;
+      transition: all 0.4s;
+    }
+
+    .btn-outline-ink:hover {
+      border-color: var(--ink);
+      background: rgba(26,26,26,0.04);
+    }
+
+    /* ---------- FOOTER ---------- */
+    .footer {
+      background: var(--ink);
+      color: rgba(245,240,232,0.5);
+      padding: 60px 6%;
+    }
+
+    .footer__inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 4rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(245,240,232,0.08);
+    }
+
+    .footer__brand {
+      font-family: 'Shippori Mincho', serif;
+      font-weight: 400;
+      font-size: 1rem;
+      color: var(--washi);
+      letter-spacing: 0.2em;
+      margin-bottom: 0.6rem;
+    }
+
+    .footer__en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.4em;
+      color: rgba(245,240,232,0.3);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer__address {
+      font-size: 0.75rem;
+      line-height: 2;
+    }
+
+    .footer__heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.4);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer__links a {
+      font-size: 0.78rem;
+      color: rgba(245,240,232,0.45);
+      display: block;
+      padding: 0.4rem 0;
+      letter-spacing: 0.08em;
+      transition: color 0.3s;
+    }
+
+    .footer__links a:hover {
+      color: var(--washi);
+    }
+
+    .footer__bottom {
+      margin-top: 2rem;
+      font-size: 0.68rem;
+      text-align: center;
+      letter-spacing: 0.1em;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .hero__kanji {
+        font-size: 8rem;
+      }
+
+      .feature-item {
+        grid-template-columns: 50px 1fr;
+        gap: 1.5rem;
+      }
+
+      .products__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .product-item {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .product-item:nth-child(odd) {
+        border-right: 1px solid var(--border);
+      }
+
+      .history__inner {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+      }
+
+      .history__image {
+        height: 280px;
+      }
+
+      .footer__inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav" role="navigation" aria-label="メインナビゲーション">
+    <div class="nav__logo">株式会社 永作</div>
+    <button class="nav__menu-btn" aria-label="メニューを開く">Menu</button>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" role="main" aria-label="ヒーローセクション">
+    <span class="hero__en">Nagasaku — Food Wholesaler — Est. 1945</span>
+    <h1 class="hero__kanji" aria-label="食">食</h1>
+    <p class="hero__tagline">
+      <em>80年</em>、鹿嶋から食卓へ届け続ける。<br>
+      それが私たちの使命です。
+    </p>
+    <div class="hero__scroll" aria-label="スクロールしてください">
+      Scroll
+    </div>
+  </section>
+
+  <div class="thin-line" aria-hidden="true"></div>
+
+  <!-- ===== INTRO ===== -->
+  <section class="intro" aria-labelledby="intro-title">
+    <p class="intro__en">About Nagasaku</p>
+    <p class="intro__text" id="intro-title">
+      <em>昭和20年、一台の自転車と誠実さ</em>だけを持って始まった。<br>
+      3代80年、変わらないのは食卓への責任と、<br>
+      人を大切にするという経営の原点。
+    </p>
+  </section>
+
+  <div class="thin-line" aria-hidden="true"></div>
+
+  <!-- ===== FEATURES ===== -->
+  <section class="features" id="features" aria-labelledby="features-title">
+    <span class="features__en">Our Strengths</span>
+    <h2 id="features-title" class="sr-only">私たちの強み</h2>
+    <div role="list">
+      <div class="feature-item" role="listitem">
+        <div class="feature-item__num" aria-hidden="true">一</div>
+        <div class="feature-item__content">
+          <h3 class="feature-item__title">80年の業歴が語る信頼</h3>
+          <p class="feature-item__text">1945年（昭和20年）の創業以来、茨城・鹿嶋を拠点として80年間、食品卸の使命を全うしてきた。時代が変わっても、変わらない誠実さで取引先と向き合い続けてきた実績が、私たちの土台です。</p>
+        </div>
+      </div>
+      <div class="feature-item" role="listitem">
+        <div class="feature-item__num" aria-hidden="true">二</div>
+        <div class="feature-item__content">
+          <h3 class="feature-item__title">3代続く家業承継の誠実さ</h3>
+          <p class="feature-item__text">佃煮屋として創業した初代・栄之の精神を2代目が卸業として継承し、3代目・浩二が令和の世に受け継いだ。切れ目のない誠実さの連鎖が、地域からの信頼を守っています。</p>
+        </div>
+      </div>
+      <div class="feature-item" role="listitem">
+        <div class="feature-item__num" aria-hidden="true">三</div>
+        <div class="feature-item__content">
+          <h3 class="feature-item__title">安心・安全な食品供給</h3>
+          <p class="feature-item__text">地域の食卓に欠かせない商品を、確かな品質管理と安定した在庫で供給し続ける。食品インフラとしての責任感が、永作の仕事の根幹にあります。</p>
+        </div>
+      </div>
+      <div class="feature-item" role="listitem">
+        <div class="feature-item__num" aria-hidden="true">四</div>
+        <div class="feature-item__content">
+          <h3 class="feature-item__title">鹿嶋・茨城の地域密着</h3>
+          <p class="feature-item__text">茨城県鹿嶋市・神栖市を拠点に、地域の食品スーパーへ確実に届ける配送体制。地元を知り尽くした機動力と、顔の見えるコミュニケーションが強みです。</p>
+        </div>
+      </div>
+      <div class="feature-item" role="listitem">
+        <div class="feature-item__num" aria-hidden="true">五</div>
+        <div class="feature-item__content">
+          <h3 class="feature-item__title">人を大切にする経営哲学</h3>
+          <p class="feature-item__text">「社員とその家族を、物心両面で幸せにする。」これが3代続く経営理念の中心にある言葉です。働く人が誇りを持てる職場こそが、良質な仕事を生む。そう信じています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCTS ===== -->
+  <section class="products" id="products" aria-labelledby="products-title">
+    <div class="products__header">
+      <p class="products__en">Products</p>
+      <h2 class="products__title" id="products-title">
+        食卓に必要な全てを、<br>
+        鹿嶋から届ける。
+      </h2>
+    </div>
+    <div class="products__grid" role="list">
+      <div class="product-item" role="listitem">
+        <div class="product-item__image">
+          <img
+            src="https://images.unsplash.com/photo-1759299983719-64e27f065fc8?auto=format&fit=crop&w=300&h=120&q=80"
+            alt="醤油・味噌などの調味料"
+            loading="lazy"
+          >
+        </div>
+        <p class="product-item__jp">醤油・味噌</p>
+        <p class="product-item__en">Seasoning</p>
+      </div>
+      <div class="product-item" role="listitem">
+        <div class="product-item__image">
+          <img
+            src="https://images.unsplash.com/photo-1766871138762-51db92945bbc?auto=format&fit=crop&w=300&h=120&q=80"
+            alt="カップ麺・袋麺"
+            loading="lazy"
+          >
+        </div>
+        <p class="product-item__jp">カップ麺・袋麺</p>
+        <p class="product-item__en">Instant Noodles</p>
+      </div>
+      <div class="product-item" role="listitem">
+        <div class="product-item__image">
+          <img
+            src="https://images.unsplash.com/photo-1760926548218-086f0f60e778?auto=format&fit=crop&w=300&h=120&q=80"
+            alt="缶詰・瓶詰食品"
+            loading="lazy"
+          >
+        </div>
+        <p class="product-item__jp">缶詰・瓶詰</p>
+        <p class="product-item__en">Canned Foods</p>
+      </div>
+      <div class="product-item" role="listitem">
+        <div class="product-item__image">
+          <img
+            src="https://images.unsplash.com/photo-1534723256377-d5d00e043625?auto=format&fit=crop&w=300&h=120&q=80"
+            alt="飲料・ソフトドリンク"
+            loading="lazy"
+          >
+        </div>
+        <p class="product-item__jp">飲料・ドリンク</p>
+        <p class="product-item__en">Beverages</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HISTORY ===== -->
+  <section class="history" id="history" aria-labelledby="history-title">
+    <div class="history__inner">
+      <div class="history__image-side">
+        <div class="history__image">
+          <img
+            src="https://images.unsplash.com/photo-1751203658664-b3f4ae20ac61?auto=format&fit=crop&w=800&h=500&q=80"
+            alt="伝統的な日本の街並み"
+            loading="lazy"
+          >
+          <div class="history__year-mark" aria-label="創業1945年">
+            <div class="year">1945</div>
+            <div class="label">Est. Kashima</div>
+          </div>
+        </div>
+      </div>
+      <div class="history__text-side">
+        <p class="history__en">History</p>
+        <h2 class="history__title" id="history-title">
+          1945年。<br>
+          一台の自転車と<br>
+          一つの誠実さ。
+        </h2>
+        <p class="history__body">
+          終戦の年、初代・永作栄之が鹿嶋の地に「永作商店」を創業しました。漁師から仕入れた魚を背負い、未舗装の道を自転車で東京築地まで行商した原点が、今日の永作の全てです。
+        </p>
+        <div class="timeline-list" role="list">
+          <div class="timeline-entry" role="listitem">
+            <span class="timeline-entry__year">1945</span>
+            <p class="timeline-entry__text">初代・永作栄之、佃煮屋「永作商店」創業。自転車で東京築地へ行商。</p>
+          </div>
+          <div class="timeline-entry" role="listitem">
+            <span class="timeline-entry__year">2代目</span>
+            <p class="timeline-entry__text">食品卸業へ転換。地域スーパーとの安定した供給ネットワーク構築。</p>
+          </div>
+          <div class="timeline-entry" role="listitem">
+            <span class="timeline-entry__year">2021</span>
+            <p class="timeline-entry__text">3代目・永作浩二が事業承継。80年の誠実さを次代へ。</p>
+          </div>
+          <div class="timeline-entry" role="listitem">
+            <span class="timeline-entry__year">2025</span>
+            <p class="timeline-entry__text">創業80周年。余白の中に、これからも続く使命が宿る。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta" id="contact" aria-labelledby="cta-title">
+    <p class="cta__en">Contact / Recruit</p>
+    <h2 class="cta__title" id="cta-title">
+      お取引のご相談、<br>
+      静かに、誠実に。
+    </h2>
+    <p class="cta__sub">
+      食品卸のご相談・お取引条件のご確認は、お電話にてお気軽にどうぞ。<br>
+      4tドライバー・倉庫スタッフの採用も随時受け付けております。
+    </p>
+    <div class="cta__buttons">
+      <a href="tel:0299693371" class="btn-ink">お取引のご相談</a>
+      <a href="#recruit" class="btn-outline-ink">採用情報（4tドライバー募集）</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="recruit" aria-label="フッター">
+    <div class="footer__inner">
+      <div>
+        <p class="footer__brand">株式会社 永作</p>
+        <p class="footer__en">NAGASAKU / Food Wholesaler / Est. 1945</p>
+        <address style="font-style:normal;" class="footer__address">
+          〒311-2205 茨城県鹿嶋市津賀1766-3<br>
+          TEL: <a href="tel:0299693371" style="color:inherit;">0299-69-3371</a><br>
+          代表取締役: 永作 浩二
+        </address>
+      </div>
+      <div>
+        <p class="footer__heading">Navigation</p>
+        <ul class="footer__links" role="list">
+          <li><a href="#features">私たちの強み</a></li>
+          <li><a href="#products">取扱商品</a></li>
+          <li><a href="#history">沿革</a></li>
+          <li><a href="#contact">お取引のご相談</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__heading">Recruit</p>
+        <ul class="footer__links" role="list">
+          <li><a href="#recruit">採用情報</a></li>
+          <li><a href="#recruit">4tドライバー募集</a></li>
+          <li><a href="#recruit">倉庫スタッフ募集</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer__bottom">&copy; 2025 株式会社永作. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+/* ============================================================
+   common.css — 株式会社永作 WEBリニューアル提案 共通リセット
+   各パターンHTML内でこのファイルをリンクして基礎を揃える。
+   ============================================================ */
+
+/* ---------- Box Sizing Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- Root ---------- */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ---------- Body ---------- */
+body {
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---------- Images ---------- */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---------- Links ---------- */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ---------- Lists ---------- */
+ul,
+ol {
+  list-style: none;
+}
+
+/* ---------- Form Elements ---------- */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* ---------- Responsive Table ---------- */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* ---------- Utility: sr-only ---------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

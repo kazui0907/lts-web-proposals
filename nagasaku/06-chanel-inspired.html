@@ -1,0 +1,1500 @@
+<!-- Chanel-inspired top page for 株式会社永作 / 2026-05-12 / by アオ -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NAGASAKU — 株式会社永作 | Since 1945, Kashima</title>
+  <meta name="description" content="1945年創業。茨城県鹿嶋市から食品スーパーへ。醤油・味噌・缶詰・飲料を3代にわたり誠実に届ける老舗食品卸問屋、株式会社永作のオフィシャルサイト。">
+  <meta property="og:title" content="NAGASAKU — 株式会社永作 | Since 1945">
+  <meta property="og:description" content="1945年、鹿嶋にて。3代続く誠実な食品卸。地域の食品インフラを80年守り続けています。">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1614563637806-1d0e645e0940?w=1200&q=80">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="NAGASAKU — 株式会社永作 | Since 1945">
+  <meta name="twitter:description" content="1945年、鹿嶋にて。3代続く誠実な食品卸。">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1614563637806-1d0e645e0940?w=1200&q=80">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Sans+JP:wght@300;400&family=Noto+Serif+JP:wght@300;400&family=Inter:wght@200;300;400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===========================
+       RESET & BASE
+    =========================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --black: #000000;
+      --near-black: #1a1a1a;
+      --dark: #2d2d2d;
+      --mid: #6b6b6b;
+      --light: #c8c8c8;
+      --off-white: #f5f0ea;
+      --white: #ffffff;
+      --transition: 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --tracking-wide: 0.22em;
+      --tracking-wider: 0.32em;
+      --tracking-widest: 0.48em;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--near-black);
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ===========================
+       HEADER
+    =========================== */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(24px, 4vw, 60px);
+      height: 64px;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      transition: height var(--transition), background var(--transition);
+    }
+
+    .header.scrolled {
+      height: 52px;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .hamburger {
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 28px;
+      height: 20px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 100%;
+      height: 1px;
+      background: var(--near-black);
+      transition: transform 0.4s ease, opacity 0.4s ease;
+      transform-origin: center;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(9.5px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-9.5px) rotate(-45deg);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+      color: var(--near-black);
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.5;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    .wordmark {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(14px, 1.4vw, 18px);
+      font-weight: 300;
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+      color: var(--near-black);
+      white-space: nowrap;
+    }
+
+    .header-right {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--near-black);
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+    }
+
+    .header-right:hover {
+      opacity: 0.5;
+    }
+
+    /* ===========================
+       OVERLAY MENU
+    =========================== */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+    }
+
+    .overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .overlay-nav {
+      text-align: center;
+      list-style: none;
+    }
+
+    .overlay-nav li {
+      overflow: hidden;
+      margin-bottom: clamp(20px, 3vh, 36px);
+    }
+
+    .overlay-nav a {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 5vw, 52px);
+      font-weight: 300;
+      letter-spacing: var(--tracking-wide);
+      color: var(--white);
+      transform: translateY(100%);
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.3s ease;
+    }
+
+    .overlay.open .overlay-nav a {
+      transform: translateY(0);
+    }
+
+    .overlay-nav a:hover {
+      color: var(--light);
+    }
+
+    .overlay-nav li:nth-child(1) a { transition-delay: 0.1s; }
+    .overlay-nav li:nth-child(2) a { transition-delay: 0.15s; }
+    .overlay-nav li:nth-child(3) a { transition-delay: 0.2s; }
+    .overlay-nav li:nth-child(4) a { transition-delay: 0.25s; }
+    .overlay-nav li:nth-child(5) a { transition-delay: 0.3s; }
+    .overlay-nav li:nth-child(6) a { transition-delay: 0.35s; }
+
+    .overlay-sub {
+      margin-top: clamp(32px, 5vh, 56px);
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: var(--tracking-widest);
+      color: var(--mid);
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    /* ===========================
+       SCROLL ANIMATION
+    =========================== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    .fade-up.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transition: opacity 1.1s ease;
+    }
+
+    .fade-in.is-visible {
+      opacity: 1;
+    }
+
+    /* ===========================
+       SECTION BASE
+    =========================== */
+    section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ===========================
+       1. HERO
+    =========================== */
+    .hero {
+      height: 100vh;
+      min-height: 600px;
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      filter: grayscale(25%) contrast(1.08) brightness(0.78);
+    }
+
+    .hero-content {
+      position: absolute;
+      bottom: clamp(48px, 8vh, 100px);
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: var(--white);
+      z-index: 2;
+    }
+
+    .hero-wordmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 5.5vw, 72px);
+      font-weight: 300;
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .hero-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(8px, 1vw, 11px);
+      font-weight: 200;
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.72);
+      margin-bottom: 40px;
+    }
+
+    .hero-scroll {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 8px;
+      font-weight: 300;
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.4);
+      animation: scrollDown 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollDown {
+      0%, 100% { transform: scaleY(1); transform-origin: top; opacity: 0.4; }
+      50% { transform: scaleY(0.4); transform-origin: bottom; opacity: 1; }
+    }
+
+    /* ===========================
+       2. HOUSE OF NAGASAKU
+    =========================== */
+    .house {
+      min-height: 100vh;
+      display: flex;
+      align-items: stretch;
+    }
+
+    .house-image {
+      position: absolute;
+      inset: 0;
+      filter: grayscale(30%) contrast(1.05) brightness(0.75);
+    }
+
+    .house-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      padding: clamp(80px, 15vh, 160px) clamp(24px, 8vw, 120px);
+      color: var(--white);
+    }
+
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 300;
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.55);
+      margin-bottom: 32px;
+    }
+
+    .section-label.dark {
+      color: var(--light);
+    }
+
+    .section-title-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(22px, 3.5vw, 44px);
+      font-weight: 300;
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    .section-title-jp {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(13px, 1.5vw, 16px);
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      color: rgba(255, 255, 255, 0.75);
+      margin-bottom: 40px;
+      line-height: 1.9;
+    }
+
+    .section-body {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: clamp(13px, 1.3vw, 15px);
+      font-weight: 300;
+      line-height: 2.0;
+      letter-spacing: 0.06em;
+      color: rgba(255, 255, 255, 0.78);
+      max-width: 580px;
+    }
+
+    /* ===========================
+       3. HERITAGE — 沿革
+    =========================== */
+    .heritage {
+      background: var(--white);
+      padding: clamp(80px, 14vh, 160px) clamp(24px, 6vw, 80px);
+    }
+
+    .heritage-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px, 6vw, 100px);
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .heritage-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .heritage-image-wrap {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .heritage-image-wrap img {
+      filter: grayscale(20%) contrast(1.06) brightness(0.92);
+      transition: transform 1.2s ease;
+    }
+
+    .heritage-image-wrap:hover img {
+      transform: scale(1.03);
+    }
+
+    .heritage-text {
+      padding: clamp(20px, 3vw, 40px) 0;
+    }
+
+    .section-label-dark {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 300;
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 32px;
+    }
+
+    .heritage-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(26px, 3.8vw, 48px);
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--near-black);
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+
+    .heritage-title-jp {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(12px, 1.3vw, 14px);
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--mid);
+      margin-bottom: 40px;
+    }
+
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--near-black);
+      margin-bottom: 40px;
+    }
+
+    .heritage-body {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(13px, 1.2vw, 15px);
+      font-weight: 300;
+      line-height: 2.1;
+      letter-spacing: 0.06em;
+      color: var(--dark);
+    }
+
+    .heritage-body p + p {
+      margin-top: 24px;
+    }
+
+    .heritage-year {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: rgba(0, 0, 0, 0.06);
+      margin-top: 48px;
+      line-height: 1;
+    }
+
+    /* ===========================
+       4. CRAFT — 取扱商品
+    =========================== */
+    .craft {
+      background: var(--off-white);
+      padding: clamp(80px, 14vh, 160px) clamp(24px, 6vw, 80px);
+    }
+
+    .craft-header {
+      text-align: center;
+      margin-bottom: clamp(60px, 10vh, 100px);
+    }
+
+    .craft-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(22px, 3.2vw, 40px);
+      font-weight: 300;
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--near-black);
+      margin-bottom: 12px;
+    }
+
+    .craft-subtitle {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(12px, 1.3vw, 14px);
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--mid);
+    }
+
+    .craft-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    @media (max-width: 640px) {
+      .craft-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (min-width: 641px) and (max-width: 900px) {
+      .craft-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .craft-item {
+      position: relative;
+      overflow: hidden;
+      background: var(--near-black);
+    }
+
+    .craft-item-image {
+      aspect-ratio: 4/5;
+      overflow: hidden;
+    }
+
+    .craft-item-image img {
+      filter: grayscale(35%) contrast(1.1) brightness(0.7);
+      transition: transform 1.2s ease, filter 0.8s ease;
+    }
+
+    .craft-item:hover .craft-item-image img {
+      transform: scale(1.06);
+      filter: grayscale(15%) contrast(1.05) brightness(0.8);
+    }
+
+    .craft-item-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: clamp(16px, 2.5vh, 28px) clamp(16px, 2.5vw, 28px);
+      background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
+      color: var(--white);
+    }
+
+    .craft-item-en {
+      font-family: 'Inter', sans-serif;
+      font-size: 8px;
+      font-weight: 300;
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.55);
+      margin-bottom: 6px;
+    }
+
+    .craft-item-jp {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(14px, 1.5vw, 18px);
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: var(--white);
+    }
+
+    /* ===========================
+       5. MAISON — 会社情報
+    =========================== */
+    .maison {
+      min-height: 90vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .maison-image {
+      position: absolute;
+      inset: 0;
+      filter: grayscale(30%) contrast(1.06) brightness(0.7);
+    }
+
+    .maison-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: clamp(80px, 14vh, 160px) clamp(24px, 8vw, 120px);
+    }
+
+    .maison-inner {
+      max-width: 560px;
+    }
+
+    .maison-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(22px, 3.5vw, 42px);
+      font-weight: 300;
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .maison-subtitle {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(12px, 1.2vw, 14px);
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 40px;
+    }
+
+    .divider-white {
+      width: 40px;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.5);
+      margin-bottom: 40px;
+    }
+
+    .maison-body {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: clamp(13px, 1.2vw, 14px);
+      font-weight: 300;
+      line-height: 2.1;
+      letter-spacing: 0.04em;
+      color: rgba(255, 255, 255, 0.78);
+      margin-bottom: 48px;
+    }
+
+    .maison-info {
+      list-style: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .maison-info li {
+      display: flex;
+      gap: 24px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.7);
+      letter-spacing: 0.06em;
+    }
+
+    .maison-info .label {
+      min-width: 100px;
+      font-size: 9px;
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* ===========================
+       6. CAREERS
+    =========================== */
+    .careers {
+      background: var(--near-black);
+      padding: clamp(80px, 14vh, 160px) clamp(24px, 6vw, 80px);
+    }
+
+    .careers-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px, 6vw, 100px);
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .careers-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .careers-text {
+      order: 1;
+    }
+
+    .careers-image-wrap {
+      order: 2;
+      aspect-ratio: 4/5;
+      overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+      .careers-text { order: 2; }
+      .careers-image-wrap { order: 1; }
+    }
+
+    .careers-image-wrap img {
+      filter: grayscale(20%) contrast(1.08) brightness(0.85);
+      transition: transform 1.2s ease;
+    }
+
+    .careers-image-wrap:hover img {
+      transform: scale(1.04);
+    }
+
+    .careers-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 300;
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 32px;
+    }
+
+    .careers-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(26px, 3.8vw, 48px);
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+
+    .careers-title-jp {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(12px, 1.3vw, 14px);
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--mid);
+      margin-bottom: 40px;
+    }
+
+    .divider-white-sm {
+      width: 40px;
+      height: 1px;
+      background: var(--mid);
+      margin-bottom: 40px;
+    }
+
+    .careers-body {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: clamp(13px, 1.2vw, 14px);
+      font-weight: 300;
+      line-height: 2.1;
+      letter-spacing: 0.04em;
+      color: var(--light);
+      margin-bottom: 48px;
+    }
+
+    .careers-perks {
+      list-style: none;
+      margin-bottom: 56px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .careers-perks li {
+      display: flex;
+      gap: 20px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .careers-perks .perk-label {
+      min-width: 80px;
+      font-size: 8px;
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+    }
+
+    .btn {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 300;
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+      padding: 16px 36px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: var(--white);
+      cursor: pointer;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+
+    .btn:hover {
+      background: var(--white);
+      color: var(--near-black);
+    }
+
+    .btn-dark {
+      border-color: var(--near-black);
+      color: var(--near-black);
+    }
+
+    .btn-dark:hover {
+      background: var(--near-black);
+      color: var(--white);
+    }
+
+    /* ===========================
+       7. CONTACT
+    =========================== */
+    .contact {
+      background: var(--white);
+      padding: clamp(80px, 14vh, 160px) clamp(24px, 6vw, 80px);
+      text-align: center;
+    }
+
+    .contact-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 300;
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 32px;
+    }
+
+    .contact-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(22px, 3.2vw, 40px);
+      font-weight: 300;
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--near-black);
+      margin-bottom: 12px;
+    }
+
+    .contact-subtitle {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(12px, 1.3vw, 14px);
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--mid);
+      margin-bottom: 56px;
+    }
+
+    .contact-phone {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 5.5vw, 68px);
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--near-black);
+      margin-bottom: 16px;
+    }
+
+    .contact-phone-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 300;
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 56px;
+    }
+
+    .contact-divider {
+      width: 1px;
+      height: 60px;
+      background: rgba(0,0,0,0.15);
+      margin: 0 auto 56px;
+    }
+
+    .contact-body {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: clamp(13px, 1.2vw, 14px);
+      font-weight: 300;
+      line-height: 2.0;
+      letter-spacing: 0.04em;
+      color: var(--dark);
+      max-width: 520px;
+      margin: 0 auto 48px;
+    }
+
+    /* ===========================
+       8. FOOTER
+    =========================== */
+    footer {
+      background: var(--near-black);
+      padding: clamp(60px, 10vh, 100px) clamp(24px, 6vw, 80px) 40px;
+    }
+
+    .footer-top {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(32px, 4vw, 60px);
+      padding-bottom: 56px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .footer-top {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer-top {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .footer-col-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 300;
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 24px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 14px;
+    }
+
+    .footer-links a {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.55);
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-wordmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .footer-copy {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.25);
+    }
+
+    /* ===========================
+       INTERSTITIAL — thin quote strip
+    =========================== */
+    .quote-strip {
+      background: var(--off-white);
+      padding: clamp(56px, 10vh, 100px) clamp(24px, 8vw, 120px);
+      text-align: center;
+      border-top: 1px solid rgba(0,0,0,0.07);
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+    }
+
+    .quote-text {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(14px, 1.8vw, 20px);
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      line-height: 2.0;
+      color: var(--dark);
+      max-width: 700px;
+      margin: 0 auto 24px;
+    }
+
+    .quote-source {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 300;
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================
+       OVERLAY MENU
+  ========================= -->
+  <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="ナビゲーション">
+    <nav>
+      <ul class="overlay-nav">
+        <li><a href="#house" onclick="closeMenu()">The House</a></li>
+        <li><a href="#heritage" onclick="closeMenu()">Heritage</a></li>
+        <li><a href="#craft" onclick="closeMenu()">Our Craft</a></li>
+        <li><a href="#maison" onclick="closeMenu()">Maison</a></li>
+        <li><a href="#careers" onclick="closeMenu()">Careers</a></li>
+        <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+      </ul>
+      <p class="overlay-sub">株式会社永作 — Kashima, Ibaraki</p>
+    </nav>
+  </div>
+
+  <!-- ========================
+       HEADER
+  ========================= -->
+  <header class="header" id="header">
+    <div class="header-left">
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#house">The House</a></li>
+          <li><a href="#heritage">Heritage</a></li>
+          <li><a href="#craft">Our Craft</a></li>
+          <li><a href="#maison">Maison</a></li>
+        </ul>
+      </nav>
+    </div>
+    <a href="#" class="wordmark" aria-label="NAGASAKU ホームへ">NAGASAKU</a>
+    <a href="#contact" class="header-right">Contact</a>
+  </header>
+
+  <!-- ========================
+       1. HERO
+  ========================= -->
+  <section class="hero" id="hero" aria-label="ヒーロー">
+    <div class="hero-image">
+      <img
+        src="https://images.unsplash.com/photo-1614563637806-1d0e645e0940?w=1920&q=80"
+        alt="黒い陶器に盛られた和の食卓"
+        loading="eager"
+        fetchpriority="high"
+      >
+    </div>
+    <div class="hero-content fade-in" id="hero-content">
+      <p class="hero-wordmark">NAGASAKU</p>
+      <p class="hero-sub">Since 1945 &nbsp;—&nbsp; Kashima, Japan</p>
+      <div class="hero-scroll">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================
+       2. HOUSE OF NAGASAKU
+  ========================= -->
+  <section class="house" id="house" aria-label="The House of NAGASAKU">
+    <div class="hero-image">
+      <img
+        src="https://images.unsplash.com/photo-1736153918922-0cb4153a60ce?w=1920&q=80"
+        alt="日本の伝統的な木造建築の通り"
+        loading="lazy"
+      >
+    </div>
+    <div class="house-content">
+      <p class="section-label fade-up">The House</p>
+      <h2 class="section-title-en fade-up">The House of<br>Nagasaku</h2>
+      <p class="section-title-jp fade-up">昭和二十年、鹿嶋にて。</p>
+      <p class="section-body fade-up">
+        太平洋戦争が終わった年、初代・永作栄之は漁師から仕入れた魚を担ぎ、
+        片道30kmの未舗装路を自転車で走りつづけた。東京・築地へ、ひとりで、何度も。
+        <br><br>
+        その誠実な歩みから始まったメゾンは、いま80年目を迎え、
+        茨城・鹿嶋から食品スーパーへ、毎日の「あたりまえ」を届け続けている。
+        3代にわたり、変わらない誠実さで。
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================
+       QUOTE STRIP
+  ========================= -->
+  <div class="quote-strip" aria-label="経営理念">
+    <p class="quote-text fade-up">
+      「働く社員さん、パートさんの家族を、<br>物心両面で幸せにする。」
+    </p>
+    <p class="quote-source fade-up">— 株式会社永作 経営理念</p>
+  </div>
+
+  <!-- ========================
+       3. HERITAGE
+  ========================= -->
+  <section class="heritage" id="heritage" aria-label="沿革">
+    <div class="heritage-inner">
+
+      <div class="heritage-image-wrap fade-in">
+        <img
+          src="https://images.unsplash.com/photo-1614832360890-6a0d5171bd49?w=1200&q=80"
+          alt="永作の起源となった土地の面影 — 茨城鹿嶋"
+          loading="lazy"
+        >
+      </div>
+
+      <div class="heritage-text">
+        <p class="section-label-dark fade-up">Heritage</p>
+        <h2 class="heritage-title fade-up">The<br>Origin</h2>
+        <p class="heritage-title-jp fade-up">起源、そして継承</p>
+        <div class="divider fade-in"></div>
+        <div class="heritage-body fade-up">
+          <p>
+            昭和20年（1945年）、初代・永作栄之が「永作商店」として創業。
+            地元の漁師から新鮮な魚を仕入れ、東京・築地市場まで自転車で行商した。
+            片道30キロ、未舗装の道。それでも毎日走り続けた左腕一本の記録が、
+            このメゾンの原点だ。
+          </p>
+          <p>
+            2代目は食品卸業への転換を果たし、地域のスーパーマーケットとの信頼を
+            一軒一軒丁寧に積み上げた。令和3年12月、3代目・永作浩二が事業を承継。
+            80年の歴史を背負い、鹿嶋の食品インフラとしての使命を今も受け継いでいる。
+          </p>
+        </div>
+        <p class="heritage-year fade-in">1945</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================
+       4. CRAFT
+  ========================= -->
+  <section class="craft" id="craft" aria-label="取扱商品">
+    <div class="craft-header">
+      <p class="section-label-dark fade-up">L'Art de la Table</p>
+      <h2 class="craft-title fade-up">Our Craft</h2>
+      <p class="craft-subtitle fade-up">醤油、味噌、缶詰、麺、飲料。食卓を支える、変わらない品々</p>
+    </div>
+
+    <div class="craft-grid">
+
+      <div class="craft-item fade-in">
+        <div class="craft-item-image">
+          <img
+            src="https://images.unsplash.com/photo-1550807014-1236e91b92d4?w=900&q=80"
+            alt="食の器"
+            loading="lazy"
+          >
+        </div>
+        <div class="craft-item-label">
+          <p class="craft-item-en">The Pantry</p>
+          <p class="craft-item-jp">蔵の品々</p>
+        </div>
+      </div>
+
+      <div class="craft-item fade-in">
+        <div class="craft-item-image">
+          <img
+            src="https://images.unsplash.com/photo-1602273660127-a0000560a4c1?w=900&q=80"
+            alt="食卓の情景"
+            loading="lazy"
+          >
+        </div>
+        <div class="craft-item-label">
+          <p class="craft-item-en">The Table</p>
+          <p class="craft-item-jp">食卓へ</p>
+        </div>
+      </div>
+
+      <div class="craft-item fade-in">
+        <div class="craft-item-image">
+          <img
+            src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?w=900&q=80"
+            alt="日本の食の美学"
+            loading="lazy"
+          >
+        </div>
+        <div class="craft-item-label">
+          <p class="craft-item-en">The Craft</p>
+          <p class="craft-item-jp">日本の食</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================
+       5. MAISON
+  ========================= -->
+  <section class="maison" id="maison" aria-label="会社情報">
+    <div class="maison-image">
+      <img
+        src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=1920&q=80"
+        alt="永作の倉庫・物流拠点"
+        loading="lazy"
+      >
+    </div>
+    <div class="maison-content">
+      <div class="maison-inner">
+        <p class="section-label fade-up">Our Maison</p>
+        <h2 class="maison-title fade-up">Our Maison<br>in Kashima</h2>
+        <p class="maison-subtitle fade-up">鹿嶋市津賀より、茨城・千葉へ</p>
+        <div class="divider-white fade-in"></div>
+        <p class="maison-body fade-up">
+          茨城県鹿嶋市津賀1766-3。常陸灘を望む地に、
+          永作の倉庫と配送拠点は静かに佇む。
+          地域の食品スーパーへ、醤油も、味噌も、缶詰も。
+          一台のトラックで、毎朝確かに届ける。
+          それが80年、変わらない私たちの仕事だ。
+        </p>
+        <ul class="maison-info fade-up">
+          <li>
+            <span class="label">Company</span>
+            <span>株式会社 永作（NAGASAKU Co., Ltd.）</span>
+          </li>
+          <li>
+            <span class="label">Founded</span>
+            <span>1945年（昭和20年）創業</span>
+          </li>
+          <li>
+            <span class="label">President</span>
+            <span>永作 浩二（3代目 / 令和3年12月就任）</span>
+          </li>
+          <li>
+            <span class="label">Address</span>
+            <span>〒311-2205 茨城県鹿嶋市津賀1766-3</span>
+          </li>
+          <li>
+            <span class="label">Tel</span>
+            <span>0299-69-3371</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================
+       6. CAREERS
+  ========================= -->
+  <section class="careers" id="careers" aria-label="採用情報">
+    <div class="careers-inner">
+
+      <div class="careers-text">
+        <p class="careers-label fade-up">Join the House</p>
+        <h2 class="careers-title fade-up">Careers</h2>
+        <p class="careers-title-jp fade-up">メゾンに加わる</p>
+        <div class="divider-white-sm fade-in"></div>
+        <p class="careers-body fade-up">
+          私たちは今、仲間を求めている。
+          地域の食品インフラを支える4tトラックドライバーとして、
+          鹿嶋から茨城・千葉の食卓へ、毎日確かに届ける仕事。
+          <br><br>
+          永作に入ることは、80年続く信頼の担い手になることだ。
+          社員とその家族の幸せを、何よりも大切にする組織がここにある。
+        </p>
+        <ul class="careers-perks fade-up">
+          <li>
+            <span class="perk-label">Position</span>
+            <span>4tトラックドライバー</span>
+          </li>
+          <li>
+            <span class="perk-label">Bonus</span>
+            <span>賞与あり</span>
+          </li>
+          <li>
+            <span class="perk-label">Salary</span>
+            <span>昇給あり</span>
+          </li>
+          <li>
+            <span class="perk-label">Pension</span>
+            <span>退職金制度あり</span>
+          </li>
+        </ul>
+        <a href="#contact" class="btn fade-up">Apply Now</a>
+      </div>
+
+      <div class="careers-image-wrap fade-in">
+        <img
+          src="https://images.unsplash.com/photo-1545659705-c769b5c3d132?w=1200&q=80"
+          alt="日本の風景・職場環境"
+          loading="lazy"
+        >
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================
+       7. CONTACT
+  ========================= -->
+  <section class="contact" id="contact" aria-label="お問い合わせ">
+    <p class="contact-label fade-up">Get in Touch</p>
+    <h2 class="contact-title fade-up">Contact</h2>
+    <p class="contact-subtitle fade-up">お問い合わせ・お取引のご相談</p>
+    <div class="contact-divider fade-in"></div>
+    <a href="tel:0299-69-3371" class="contact-phone fade-up">0299-69-3371</a>
+    <p class="contact-phone-label fade-up">Phone — Mon–Sat</p>
+    <p class="contact-body fade-up">
+      仕入れのご相談、取扱商品のお問い合わせ、採用に関するご質問など、
+      どうぞお気軽にお電話ください。<br>
+      担当者が誠実にお答えいたします。
+    </p>
+    <a href="tel:0299-69-3371" class="btn btn-dark fade-up">電話でお問い合わせ</a>
+  </section>
+
+  <!-- ========================
+       8. FOOTER
+  ========================= -->
+  <footer aria-label="フッター">
+    <div class="footer-top">
+      <div>
+        <p class="footer-col-title">Company</p>
+        <ul class="footer-links">
+          <li><a href="#house">メゾンについて</a></li>
+          <li><a href="#heritage">沿革</a></li>
+          <li><a href="#maison">会社概要</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Products</p>
+        <ul class="footer-links">
+          <li><a href="#craft">醤油・味噌</a></li>
+          <li><a href="#craft">カップ麺・袋麺</a></li>
+          <li><a href="#craft">缶詰・飲料</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Careers</p>
+        <ul class="footer-links">
+          <li><a href="#careers">採用情報</a></li>
+          <li><a href="#careers">4tドライバー募集</a></li>
+          <li><a href="#contact">エントリー</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Contact</p>
+        <ul class="footer-links">
+          <li><a href="tel:0299-69-3371">0299-69-3371</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
+          <li><a href="#maison">アクセス</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-wordmark">Nagasaku</span>
+      <span class="footer-copy">&copy; NAGASAKU CO., LTD. SINCE 1945 — KASHIMA, IBARAKI, JAPAN</span>
+    </div>
+  </footer>
+
+  <!-- ========================
+       JAVASCRIPT
+  ========================= -->
+  <script>
+    // ——— Header shrink on scroll ———
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }, { passive: true });
+
+    // ——— Hamburger + Overlay ———
+    const hamburger = document.getElementById('hamburger');
+    const overlay = document.getElementById('overlay');
+    let menuOpen = false;
+
+    function openMenu() {
+      menuOpen = true;
+      hamburger.classList.add('open');
+      hamburger.setAttribute('aria-expanded', 'true');
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      menuOpen = false;
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    hamburger.addEventListener('click', () => {
+      if (menuOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menuOpen) closeMenu();
+    });
+
+    // ——— Intersection Observer: fade-up & fade-in ———
+    const animEls = document.querySelectorAll('.fade-up, .fade-in');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          // unobserve after first trigger for performance
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    animEls.forEach(el => observer.observe(el));
+
+    // ——— Hero immediate fade (above fold) ———
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        const heroContent = document.getElementById('hero-content');
+        if (heroContent) heroContent.classList.add('is-visible');
+      }, 300);
+    });
+  </script>
+</body>
+</html>

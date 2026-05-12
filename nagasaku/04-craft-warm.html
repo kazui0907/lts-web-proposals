@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>株式会社永作 — Craft Warm 案</title>
+  <meta name="description" content="茨城県鹿嶋市の食品卸問屋・株式会社永作。創業1945年、3代続く温かい経営と誠実な食品供給。醤油・味噌・缶詰・飲料を地域スーパーへ。人を大切にする老舗卸業者。">
+  <link rel="stylesheet" href="assets/common.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ===== CRAFT WARM — 手仕事の品格・老舗の温かさ・物語 ===== */
+    :root {
+      --brown: #3D2817;
+      --brown-mid: #5C3D1E;
+      --cream: #F4EFE8;
+      --cream-dark: #EDE5D8;
+      --caramel: #B45309;
+      --caramel-light: #FEF3C7;
+      --stone: #57534E;
+      --stone-light: #D6D3D1;
+      --text-dark: #1C1917;
+      --text-mid: #57534E;
+      --white: #FFFFFF;
+      --teal: #0891B2;
+      --teal-light: #E0F2FE;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 400;
+      color: var(--text-dark);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    /* ---------- NAV ---------- */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--brown);
+      padding: 0 5%;
+    }
+
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav__logo {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 500;
+      font-size: 1rem;
+      color: var(--cream);
+      letter-spacing: 0.18em;
+      line-height: 1.4;
+    }
+
+    .nav__logo span {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 0.6rem;
+      color: rgba(244,239,232,0.5);
+      letter-spacing: 0.2em;
+      margin-top: 2px;
+    }
+
+    .nav__links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav__links a {
+      font-size: 0.82rem;
+      color: rgba(244,239,232,0.75);
+      letter-spacing: 0.05em;
+      transition: color 0.3s;
+      font-weight: 400;
+    }
+
+    .nav__links a:hover {
+      color: var(--cream);
+    }
+
+    .nav__cta {
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      color: var(--brown);
+      background: var(--cream);
+      padding: 11px 24px;
+      border-radius: 4px;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+
+    .nav__cta:hover {
+      background: var(--caramel-light);
+    }
+
+    .nav__hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 8px;
+    }
+
+    .nav__hamburger span {
+      width: 22px;
+      height: 2px;
+      background: var(--cream);
+      border-radius: 1px;
+      display: block;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      padding-top: 68px;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+    }
+
+    .hero__text-side {
+      background: var(--brown);
+      padding: 80px 8% 80px 10%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero__year-label {
+      font-family: 'DM Serif Display', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      color: var(--caramel);
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .hero__title {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 500;
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      color: var(--cream);
+      line-height: 1.7;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero__title em {
+      color: var(--caramel);
+      font-style: normal;
+    }
+
+    .hero__body {
+      font-size: 0.88rem;
+      color: rgba(244,239,232,0.7);
+      line-height: 2.2;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero__buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 320px;
+    }
+
+    .hero__image-side {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero__image-side img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: sepia(15%) saturate(1.1);
+    }
+
+    .hero__image-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem;
+      background: linear-gradient(to top, rgba(61,40,23,0.85), transparent);
+    }
+
+    .hero__image-caption {
+      font-family: 'DM Serif Display', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      color: rgba(244,239,232,0.7);
+      text-transform: uppercase;
+    }
+
+    /* ---------- STORY STRIP ---------- */
+    .story-strip {
+      background: var(--caramel);
+      padding: 32px 8%;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .story-strip__quote {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 400;
+      font-size: 1rem;
+      color: var(--white);
+      letter-spacing: 0.1em;
+      line-height: 1.8;
+      flex: 1;
+    }
+
+    .story-strip__stats {
+      display: flex;
+      gap: 3rem;
+      flex-shrink: 0;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-item__num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.2rem;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-item__label {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 0.05em;
+      line-height: 1.4;
+    }
+
+    /* ---------- SECTION BASE ---------- */
+    .section {
+      padding: 90px 8%;
+    }
+
+    .section--cream-dark {
+      background: var(--cream-dark);
+    }
+
+    .section--white {
+      background: var(--white);
+    }
+
+    .section__tag {
+      font-family: 'DM Serif Display', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      color: var(--caramel);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section__tag::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--caramel);
+    }
+
+    .section__title {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 500;
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      line-height: 1.6;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .section__lead {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 2;
+    }
+
+    /* ---------- FEATURES ---------- */
+    .features__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .feature-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 2rem 1.8rem;
+      border: 1px solid var(--stone-light);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--caramel);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(61,40,23,0.12);
+    }
+
+    .feature-card__num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      color: var(--stone-light);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card__title {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      margin-bottom: 0.8rem;
+      letter-spacing: 0.05em;
+    }
+
+    .feature-card__text {
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      line-height: 2;
+    }
+
+    /* ---------- PRODUCTS ---------- */
+    .products__layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .product-card {
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--cream);
+      border: 1px solid var(--stone-light);
+    }
+
+    .product-card__image {
+      height: 220px;
+      overflow: hidden;
+    }
+
+    .product-card__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: sepia(10%) saturate(1.05);
+      transition: transform 0.6s ease;
+    }
+
+    .product-card:hover .product-card__image img {
+      transform: scale(1.04);
+    }
+
+    .product-card__body {
+      padding: 1.6rem;
+    }
+
+    .product-card__tag {
+      font-family: 'DM Serif Display', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      color: var(--caramel);
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    .product-card__title {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 500;
+      font-size: 1rem;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .product-card__text {
+      font-size: 0.8rem;
+      color: var(--text-mid);
+      line-height: 1.9;
+    }
+
+    /* ---------- STORY / ABOUT ---------- */
+    .story {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .story__image {
+      height: 580px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .story__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: sepia(20%) saturate(1.1) contrast(1.05);
+    }
+
+    .story__image-badge {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      background: var(--brown);
+      color: var(--cream);
+      padding: 1.2rem;
+      border-radius: 8px;
+      text-align: center;
+      font-family: 'DM Serif Display', serif;
+    }
+
+    .story__image-badge .num {
+      font-size: 2rem;
+      display: block;
+      line-height: 1;
+    }
+
+    .story__image-badge .label {
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      opacity: 0.7;
+    }
+
+    .story__text {
+      background: var(--white);
+      padding: 80px 6%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .story__body {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 2.3;
+      margin-bottom: 2.5rem;
+    }
+
+    .timeline {
+      border-left: 2px solid var(--caramel-light);
+      padding-left: 1.8rem;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 1.8rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -1.8rem;
+      top: 7px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--caramel);
+      transform: translateX(-5px);
+    }
+
+    .timeline-item__year {
+      font-family: 'DM Serif Display', serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      color: var(--caramel);
+      margin-bottom: 0.4rem;
+    }
+
+    .timeline-item__text {
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
+
+    /* ---------- RECRUIT BANNER ---------- */
+    .recruit-banner {
+      background: var(--brown);
+      padding: 60px 8%;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .recruit-banner__title {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 500;
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      color: var(--cream);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.8rem;
+    }
+
+    .recruit-banner__text {
+      font-size: 0.85rem;
+      color: rgba(244,239,232,0.65);
+      line-height: 1.9;
+    }
+
+    /* ---------- CTA ---------- */
+    .cta {
+      background: var(--cream-dark);
+      padding: 100px 8%;
+      text-align: center;
+    }
+
+    .cta__title {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 500;
+      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+      color: var(--brown);
+      letter-spacing: 0.08em;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .cta__sub {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 2;
+      margin-bottom: 2.5rem;
+    }
+
+    .cta__buttons {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ---------- BUTTONS ---------- */
+    .btn-brown {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      color: var(--cream);
+      background: var(--brown);
+      padding: 16px 36px;
+      border-radius: 6px;
+      min-height: 52px;
+      display: inline-flex;
+      align-items: center;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+
+    .btn-brown:hover {
+      background: var(--brown-mid);
+    }
+
+    .btn-caramel {
+      font-size: 0.85rem;
+      color: var(--white);
+      background: var(--caramel);
+      padding: 16px 36px;
+      border-radius: 6px;
+      min-height: 52px;
+      display: inline-flex;
+      align-items: center;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+
+    .btn-caramel:hover {
+      background: #924011;
+    }
+
+    .btn-outline-brown {
+      font-size: 0.85rem;
+      color: var(--brown);
+      border: 2px solid var(--brown);
+      padding: 14px 34px;
+      border-radius: 6px;
+      min-height: 52px;
+      display: inline-flex;
+      align-items: center;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .btn-outline-brown:hover {
+      background: var(--brown);
+      color: var(--cream);
+    }
+
+    .btn-cream {
+      font-size: 0.85rem;
+      color: var(--brown);
+      background: var(--cream);
+      padding: 16px 36px;
+      border-radius: 6px;
+      min-height: 52px;
+      display: inline-flex;
+      align-items: center;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+
+    .btn-cream:hover {
+      background: var(--caramel-light);
+    }
+
+    /* ---------- FOOTER ---------- */
+    .footer {
+      background: var(--brown);
+      color: rgba(244,239,232,0.6);
+      padding: 60px 8%;
+    }
+
+    .footer__inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 4rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(244,239,232,0.1);
+    }
+
+    .footer__brand {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: var(--cream);
+      letter-spacing: 0.15em;
+      margin-bottom: 0.6rem;
+    }
+
+    .footer__since {
+      font-family: 'DM Serif Display', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--caramel);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer__address {
+      font-size: 0.78rem;
+      line-height: 2;
+    }
+
+    .footer__heading {
+      font-family: 'DM Serif Display', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--cream);
+      margin-bottom: 1.2rem;
+    }
+
+    .footer__links a {
+      font-size: 0.8rem;
+      color: rgba(244,239,232,0.55);
+      display: block;
+      padding: 0.38rem 0;
+      transition: color 0.3s;
+    }
+
+    .footer__links a:hover {
+      color: var(--caramel);
+    }
+
+    .footer__bottom {
+      margin-top: 2rem;
+      font-size: 0.7rem;
+      text-align: center;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .nav__links,
+      .nav__cta {
+        display: none;
+      }
+
+      .nav__hamburger {
+        display: flex;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero__text-side {
+        padding: 50px 6%;
+      }
+
+      .hero__image-side {
+        height: 300px;
+      }
+
+      .hero__buttons {
+        max-width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .story-strip {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: flex-start;
+      }
+
+      .features__grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+
+      .products__layout {
+        grid-template-columns: 1fr;
+      }
+
+      .story {
+        grid-template-columns: 1fr;
+      }
+
+      .story__image {
+        height: 280px;
+      }
+
+      .story__text {
+        padding: 50px 6%;
+      }
+
+      .recruit-banner {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+      }
+
+      .footer__inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav" role="navigation" aria-label="メインナビゲーション">
+    <div class="nav__inner">
+      <div class="nav__logo">
+        株式会社 永作
+        <span>Food Wholesaler — Est. 1945 Kashima, Ibaraki</span>
+      </div>
+      <div class="nav__links" role="list">
+        <a href="#features" role="listitem">強み</a>
+        <a href="#products" role="listitem">取扱商品</a>
+        <a href="#story" role="listitem">物語</a>
+        <a href="#recruit" role="listitem">採用</a>
+      </div>
+      <a href="#contact" class="nav__cta">お取引のご相談</a>
+      <button class="nav__hamburger" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero" role="banner">
+    <div class="hero__text-side">
+      <span class="hero__year-label">Est. 1945 / 創業80年 / 鹿嶋・茨城</span>
+      <h1 class="hero__title">
+        食卓へ届ける誠実さ、<br>
+        <em>3代80年</em>変わらない。
+      </h1>
+      <p class="hero__body">
+        昭和20年、一台の自転車と誠実さだけを持って始まった永作商店。<br>
+        3代目・浩二が受け継いだ今も、鹿嶋から地域の食品スーパーへ<br>
+        醤油・味噌・缶詰・飲料を届け続けています。
+      </p>
+      <div class="hero__buttons">
+        <a href="#contact" class="btn-caramel">お取引のご相談</a>
+        <a href="#story" class="btn-cream">3代の物語を読む</a>
+      </div>
+    </div>
+    <div class="hero__image-side">
+      <img
+        src="https://images.unsplash.com/photo-1605371924599-2d0365da1ae0?auto=format&fit=crop&w=900&h=700&q=80"
+        alt="食品が整然と並ぶ倉庫の棚"
+        loading="eager"
+      >
+      <div class="hero__image-overlay">
+        <p class="hero__image-caption">Wholesale Food / Kashima, Ibaraki</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== STORY STRIP ===== -->
+  <div class="story-strip" aria-label="コンセプトと実績">
+    <blockquote class="story-strip__quote">
+      「社員とその家族を、物心両面で幸せにする。」<br>
+      ——それが、3代続く永作の経営の根本にある言葉です。
+    </blockquote>
+    <div class="story-strip__stats" aria-label="数字で見る永作">
+      <div class="stat-item">
+        <div class="stat-item__num">80</div>
+        <div class="stat-item__label">年の<br>業歴</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-item__num">3</div>
+        <div class="stat-item__label">代続く<br>家業承継</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-item__num">5+</div>
+        <div class="stat-item__label">商品<br>カテゴリ</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FEATURES ===== -->
+  <section class="section section--cream-dark" id="features" aria-labelledby="features-title">
+    <div class="section__tag">Our Strengths</div>
+    <h2 class="section__title" id="features-title">地域と歩んだ80年が生む、<br>6つの確かな強み。</h2>
+    <p class="section__lead">老舗の誠実さと、地域密着の温かさ。それが食品スーパーから選ばれ続ける理由です。</p>
+    <div class="features__grid" role="list">
+      <div class="feature-card" role="listitem">
+        <div class="feature-card__num">01</div>
+        <h3 class="feature-card__title">1945年創業、80年の業歴</h3>
+        <p class="feature-card__text">終戦の年に創業した老舗の歴史が、変わらない信頼の証明。時代を超えて積み上げた実績が、今日の永作の根幹です。</p>
+      </div>
+      <div class="feature-card" role="listitem">
+        <div class="feature-card__num">02</div>
+        <h3 class="feature-card__title">3代続く家業承継の誠実さ</h3>
+        <p class="feature-card__text">佃煮屋→食品卸へ。初代の誠実さを2代目が引き継ぎ、3代目・浩二が令和に受け継いだ、切れ目のない信頼の連鎖。</p>
+      </div>
+      <div class="feature-card" role="listitem">
+        <div class="feature-card__num">03</div>
+        <h3 class="feature-card__title">安心・安全な食品供給</h3>
+        <p class="feature-card__text">地域の食卓に欠かせない商品を、確かな品質管理で安定供給。食品インフラとしての責任を持ち続けます。</p>
+      </div>
+      <div class="feature-card" role="listitem">
+        <div class="feature-card__num">04</div>
+        <h3 class="feature-card__title">茨城・鹿嶋の地域密着</h3>
+        <p class="feature-card__text">鹿嶋市・神栖市の地域を知り尽くした配送体制。地元の食品スーパーへ迅速かつ確実にお届けします。</p>
+      </div>
+      <div class="feature-card" role="listitem">
+        <div class="feature-card__num">05</div>
+        <h3 class="feature-card__title">幅広い商品カテゴリ</h3>
+        <p class="feature-card__text">醤油・味噌から即席麺・缶詰・飲料まで。食品スーパーの棚を包括的に支えられる商品ラインナップ。</p>
+      </div>
+      <div class="feature-card" role="listitem">
+        <div class="feature-card__num">06</div>
+        <h3 class="feature-card__title">人を大切にする経営</h3>
+        <p class="feature-card__text">スタッフとその家族の幸せを経営理念の中心に置く。働く人が誇りを持てる職場が、良質な仕事を生みます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCTS ===== -->
+  <section class="section section--white" id="products" aria-labelledby="products-title">
+    <div class="section__tag">Products</div>
+    <h2 class="section__title" id="products-title">毎日の食卓を支える<br>5つの商品カテゴリ。</h2>
+    <p class="section__lead">食品スーパーのバイヤーが必要とする商品を幅広く取り揃え、安定した在庫と確実な配送でお届けします。</p>
+    <div class="products__layout" role="list">
+      <div class="product-card" role="listitem">
+        <div class="product-card__image">
+          <img
+            src="https://images.unsplash.com/photo-1759299983719-64e27f065fc8?auto=format&fit=crop&w=700&h=220&q=80"
+            alt="醤油・味噌などの調味料"
+            loading="lazy"
+          >
+        </div>
+        <div class="product-card__body">
+          <p class="product-card__tag">Seasoning</p>
+          <h3 class="product-card__title">醤油・味噌・調味料</h3>
+          <p class="product-card__text">日本の食卓の根幹を担う調味料群。主要メーカーの醤油・味噌をはじめとした調味料を幅広くお届けします。</p>
+        </div>
+      </div>
+      <div class="product-card" role="listitem">
+        <div class="product-card__image">
+          <img
+            src="https://images.unsplash.com/photo-1766871138762-51db92945bbc?auto=format&fit=crop&w=700&h=220&q=80"
+            alt="カップ麺・袋麺"
+            loading="lazy"
+          >
+        </div>
+        <div class="product-card__body">
+          <p class="product-card__tag">Instant Noodles</p>
+          <h3 class="product-card__title">カップ麺・袋麺</h3>
+          <p class="product-card__text">主要メーカーのカップ麺・袋麺を豊富に取り扱い、食品スーパーの麺コーナーを安定してサポートします。</p>
+        </div>
+      </div>
+      <div class="product-card" role="listitem">
+        <div class="product-card__image">
+          <img
+            src="https://images.unsplash.com/photo-1760926548218-086f0f60e778?auto=format&fit=crop&w=700&h=220&q=80"
+            alt="缶詰食品"
+            loading="lazy"
+          >
+        </div>
+        <div class="product-card__body">
+          <p class="product-card__tag">Canned Foods</p>
+          <h3 class="product-card__title">缶詰・瓶詰食品</h3>
+          <p class="product-card__text">保存食の需要に応える缶詰・瓶詰食品。品揃えと安定供給で、食品スーパーの缶詰棚を支えます。</p>
+        </div>
+      </div>
+      <div class="product-card" role="listitem">
+        <div class="product-card__image">
+          <img
+            src="https://images.unsplash.com/photo-1722639096482-4e1a805f9b0b?auto=format&fit=crop&w=700&h=220&q=80"
+            alt="飲料・ドリンク"
+            loading="lazy"
+          >
+        </div>
+        <div class="product-card__body">
+          <p class="product-card__tag">Beverages</p>
+          <h3 class="product-card__title">飲料・ソフトドリンク</h3>
+          <p class="product-card__text">ソフトドリンク・茶類など多彩な飲料を取り揃え。季節需要や特売対応にも柔軟にご対応します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STORY ===== -->
+  <section class="story" id="story" aria-labelledby="story-title">
+    <div class="story__image">
+      <img
+        src="https://images.unsplash.com/photo-1745340706237-31c840c9174a?auto=format&fit=crop&w=800&h=580&q=80"
+        alt="伝統的な日本の店舗の内観"
+        loading="lazy"
+      >
+      <div class="story__image-badge" aria-label="創業80年">
+        <span class="num">80</span>
+        <span class="label">Years</span>
+      </div>
+    </div>
+    <div class="story__text">
+      <div class="section__tag">Our Story</div>
+      <h2 class="section__title" id="story-title">
+        一台の自転車から始まった、<br>3代80年の誠実な物語。
+      </h2>
+      <p class="story__body">
+        1945年（昭和20年）、初代・永作栄之が茨城・鹿嶋に「永作商店」を創業しました。漁師から仕入れた魚を、未舗装の道を自転車で東京築地まで行商したその誠実さが、今日の永作の根本にあります。<br><br>
+        2代目の代には食品卸業へと業態を転換し、地域の食品スーパーとの信頼関係を着実に積み上げてきました。令和3年12月、3代目・永作浩二がその歴史を引き継ぎ、「社員とその家族を幸せにする」という理念のもとで経営を続けています。
+      </p>
+      <div class="timeline" role="list">
+        <div class="timeline-item" role="listitem">
+          <div class="timeline-item__year">1945年（昭和20年）</div>
+          <p class="timeline-item__text">初代・永作栄之が「永作商店」として創業。漁師から魚を仕入れ、自転車で東京築地まで行商。</p>
+        </div>
+        <div class="timeline-item" role="listitem">
+          <div class="timeline-item__year">2代目の時代</div>
+          <p class="timeline-item__text">食品卸業へ業態転換。地域食品スーパーへの安定供給体制を確立。</p>
+        </div>
+        <div class="timeline-item" role="listitem">
+          <div class="timeline-item__year">2021年（令和3年）12月</div>
+          <p class="timeline-item__text">3代目・永作浩二が事業承継。80年の誠実さを受け継ぎ、新時代へ。</p>
+        </div>
+        <div class="timeline-item" role="listitem">
+          <div class="timeline-item__year">2025年</div>
+          <p class="timeline-item__text">創業80周年。鹿嶋から食卓へ——これからも、誠実な卸売を続けます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RECRUIT BANNER ===== -->
+  <div class="recruit-banner" id="recruit" aria-label="採用情報">
+    <div>
+      <h2 class="recruit-banner__title">4tドライバー・倉庫スタッフ募集中</h2>
+      <p class="recruit-banner__text">鹿嶋市・神栖市エリアで働ける、やりがいのある仕事です。<br>スタッフとその家族が幸せになれる環境づくりを大切にしています。</p>
+    </div>
+    <a href="tel:0299693371" class="btn-caramel" style="white-space:nowrap;">採用のお問い合わせ</a>
+  </div>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta" id="contact" aria-labelledby="cta-title">
+    <div class="section__tag" style="justify-content:center;">Contact</div>
+    <h2 class="cta__title" id="cta-title">
+      お取引のご相談、<br>
+      お気軽にお電話ください。
+    </h2>
+    <p class="cta__sub">
+      食品卸のご相談・商品ラインナップのご確認・お取引条件のご説明など、<br>
+      何でもお気軽にお問い合わせください。
+    </p>
+    <div class="cta__buttons">
+      <a href="tel:0299693371" class="btn-brown">お取引のご相談<br><small style="font-size:0.72rem; opacity:0.7; font-weight:300;">0299-69-3371</small></a>
+      <a href="#recruit" class="btn-outline-brown">採用情報を見る</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" aria-label="フッター">
+    <div class="footer__inner">
+      <div>
+        <p class="footer__brand">株式会社 永作</p>
+        <p class="footer__since">Food Wholesaler / Est. 1945 / Kashima, Ibaraki</p>
+        <address style="font-style:normal;" class="footer__address">
+          〒311-2205 茨城県鹿嶋市津賀1766-3<br>
+          TEL: <a href="tel:0299693371" style="color:inherit;">0299-69-3371</a><br>
+          代表取締役: 永作 浩二
+        </address>
+      </div>
+      <div>
+        <p class="footer__heading">Navigation</p>
+        <ul class="footer__links" role="list">
+          <li><a href="#features">私たちの強み</a></li>
+          <li><a href="#products">取扱商品</a></li>
+          <li><a href="#story">3代の物語</a></li>
+          <li><a href="#contact">お取引のご相談</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__heading">Recruit</p>
+        <ul class="footer__links" role="list">
+          <li><a href="#recruit">採用情報</a></li>
+          <li><a href="#recruit">4tドライバー募集</a></li>
+          <li><a href="#recruit">倉庫スタッフ募集</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer__bottom">&copy; 2025 株式会社永作. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>株式会社永作 — Luxury Mono 案</title>
+  <meta name="description" content="茨城県鹿嶋市に拠点を置く食品卸問屋、株式会社永作。1945年創業80年の老舗として、醤油・味噌・缶詰・飲料など生活必需食品を食品スーパーへ安定供給しています。">
+  <link rel="stylesheet" href="assets/common.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    /* ===== LUXURY MONO — 引き算の美学・老舗の格 ===== */
+    :root {
+      --black: #000000;
+      --off-black: #1A1A1A;
+      --mid-gray: #6B6B6B;
+      --light-gray: #E8E8E8;
+      --white: #FFFFFF;
+      --gold: #8C7853;
+      --bg: #FAFAFA;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      color: var(--off-black);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ---------- NAV ---------- */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 5%;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .nav__logo {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 400;
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      color: var(--off-black);
+    }
+
+    .nav__logo span {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      color: var(--gold);
+      margin-top: 2px;
+    }
+
+    .nav__links {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .nav__links a {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      color: var(--off-black);
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .nav__links a:hover {
+      color: var(--gold);
+    }
+
+    .nav__cta {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: var(--white);
+      background: var(--off-black);
+      padding: 10px 22px;
+      text-transform: uppercase;
+      transition: background 0.3s;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav__cta:hover {
+      background: var(--gold);
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      height: 100vh;
+      min-height: 600px;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .hero__image {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(60%) contrast(1.1);
+    }
+
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%);
+      z-index: 1;
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      padding: 0 8% 8% 8%;
+      max-width: 900px;
+    }
+
+    .hero__label {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.45em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .hero__title {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 300;
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      color: var(--white);
+      letter-spacing: 0.15em;
+      line-height: 1.5;
+      margin-bottom: 2rem;
+    }
+
+    .hero__sub {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.1em;
+      line-height: 2;
+    }
+
+    .hero__year {
+      position: absolute;
+      right: 5%;
+      bottom: 8%;
+      z-index: 2;
+      font-family: 'Playfair Display', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      writing-mode: vertical-rl;
+    }
+
+    /* ---------- SECTION BASE ---------- */
+    section {
+      padding: 100px 8%;
+    }
+
+    .section__label {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.45em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .section__title {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 400;
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      letter-spacing: 0.1em;
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ---------- FEATURES ---------- */
+    .features {
+      background: var(--bg);
+      border-top: 1px solid var(--light-gray);
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    .features__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4rem;
+      margin-top: 4rem;
+    }
+
+    .feature-item {
+      border-top: 1px solid var(--off-black);
+      padding-top: 2rem;
+    }
+
+    .feature-item__num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .feature-item__title {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 400;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.8rem;
+    }
+
+    .feature-item__text {
+      font-size: 0.82rem;
+      color: var(--mid-gray);
+      line-height: 2;
+    }
+
+    /* ---------- SERVICES ---------- */
+    .services {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      padding: 0;
+    }
+
+    .services__text {
+      padding: 100px 8%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .services__image {
+      height: 600px;
+      overflow: hidden;
+    }
+
+    .services__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(30%);
+      transition: transform 0.8s ease;
+    }
+
+    .services__image:hover img {
+      transform: scale(1.03);
+    }
+
+    .services__list {
+      margin-top: 2.5rem;
+    }
+
+    .services__list li {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--light-gray);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+    }
+
+    .services__list li::before {
+      content: '—';
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* ---------- ABOUT ---------- */
+    .about {
+      background: var(--off-black);
+      color: var(--white);
+    }
+
+    .about__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .about .section__title {
+      color: var(--white);
+    }
+
+    .about__body {
+      font-size: 0.85rem;
+      line-height: 2.2;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .about__image {
+      height: 480px;
+      overflow: hidden;
+    }
+
+    .about__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(50%) contrast(1.05);
+    }
+
+    .about__timeline {
+      margin-top: 3rem;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 1.5rem;
+      padding: 1.2rem 0;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      font-size: 0.82rem;
+    }
+
+    .timeline-item__year {
+      font-family: 'Playfair Display', serif;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+    }
+
+    .timeline-item__text {
+      color: rgba(255,255,255,0.7);
+      line-height: 1.8;
+    }
+
+    /* ---------- CTA ---------- */
+    .cta {
+      text-align: center;
+      padding: 120px 8%;
+      background: var(--white);
+      border-top: 1px solid var(--light-gray);
+    }
+
+    .cta__label {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.45em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .cta__title {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 300;
+      font-size: clamp(1.6rem, 3vw, 2.8rem);
+      letter-spacing: 0.1em;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta__sub {
+      font-size: 0.85rem;
+      color: var(--mid-gray);
+      margin-bottom: 3rem;
+      line-height: 2;
+    }
+
+    .cta__buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--off-black);
+      padding: 18px 40px;
+      min-height: 56px;
+      display: inline-flex;
+      align-items: center;
+      transition: background 0.3s;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold);
+    }
+
+    .btn-outline {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--off-black);
+      border: 1px solid var(--off-black);
+      padding: 18px 40px;
+      min-height: 56px;
+      display: inline-flex;
+      align-items: center;
+      transition: all 0.3s;
+    }
+
+    .btn-outline:hover {
+      background: var(--off-black);
+      color: var(--white);
+    }
+
+    /* ---------- FOOTER ---------- */
+    .footer {
+      background: var(--black);
+      color: rgba(255,255,255,0.6);
+      padding: 60px 8%;
+    }
+
+    .footer__inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 4rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer__brand {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1rem;
+      color: var(--white);
+      letter-spacing: 0.15em;
+      margin-bottom: 1rem;
+    }
+
+    .footer__tagline {
+      font-size: 0.75rem;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer__address {
+      font-size: 0.75rem;
+      line-height: 2;
+    }
+
+    .footer__heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer__links li {
+      padding: 0.4rem 0;
+    }
+
+    .footer__links a {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.05em;
+      transition: color 0.3s;
+    }
+
+    .footer__links a:hover {
+      color: var(--gold);
+    }
+
+    .footer__bottom {
+      margin-top: 2rem;
+      font-size: 0.7rem;
+      text-align: center;
+      letter-spacing: 0.1em;
+    }
+
+    /* ===== HAMBURGER NAV (SP) ===== */
+    .nav__hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .nav__hamburger span {
+      width: 24px;
+      height: 1px;
+      background: var(--off-black);
+      display: block;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .nav__links,
+      .nav__cta {
+        display: none;
+      }
+
+      .nav__hamburger {
+        display: flex;
+      }
+
+      .hero__title {
+        font-size: 1.8rem;
+      }
+
+      .features__grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      .services__image {
+        height: 300px;
+        order: -1;
+      }
+
+      .about__inner {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .about__image {
+        height: 280px;
+        order: -1;
+      }
+
+      .footer__inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .cta__buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      section {
+        padding: 60px 6%;
+      }
+
+      .services__text {
+        padding: 60px 6%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav" role="navigation" aria-label="メインナビゲーション">
+    <div class="nav__logo">
+      株式会社 永作
+      <span>NAGASAKU Co., Ltd. / Est. 1945</span>
+    </div>
+    <div class="nav__links" role="list">
+      <a href="#about" role="listitem">About</a>
+      <a href="#services" role="listitem">Products</a>
+      <a href="#contact" role="listitem">Contact</a>
+      <a href="#recruit" role="listitem">Recruit</a>
+    </div>
+    <a href="#contact" class="nav__cta">お取引のご相談</a>
+    <button class="nav__hamburger" aria-label="メニューを開く">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" aria-label="ヒーローセクション">
+    <div class="hero__image">
+      <img
+        src="https://images.unsplash.com/photo-1741655262435-4890ab9918fa?auto=format&fit=crop&w=1800&h=1000&q=80"
+        alt="整然と並ぶ食品の倉庫"
+        loading="eager"
+      >
+    </div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <span class="hero__label">Est. 1945 — Kashima, Ibaraki</span>
+      <h1 class="hero__title">
+        80年、鹿嶋から<br>
+        食卓を支えてきた。
+      </h1>
+      <p class="hero__sub">
+        醤油も、味噌も、缶詰も。<br>
+        一台のトラックで、地域のスーパーへ届け続ける。
+      </p>
+    </div>
+    <div class="hero__year" aria-hidden="true">Since 1945</div>
+  </section>
+
+  <!-- ===== FEATURES ===== -->
+  <section class="features" id="features" aria-labelledby="features-title">
+    <span class="section__label">Our Strengths</span>
+    <h2 class="section__title" id="features-title">3代続く、誠実な卸売の矜持。</h2>
+    <div class="features__grid">
+      <div class="feature-item">
+        <div class="feature-item__num">01</div>
+        <h3 class="feature-item__title">80年の業歴が語る信頼</h3>
+        <p class="feature-item__text">1945年（昭和20年）の創業以来、鹿嶋の食品インフラを支え続けてきた実績。時代が変わっても、変わらない誠実さで取引先と向き合ってきました。</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item__num">02</div>
+        <h3 class="feature-item__title">3代続く家業承継の誇り</h3>
+        <p class="feature-item__text">初代・栄之が佃煮屋として創業し、2代目が卸業へ転換、3代目・浩二が令和3年に承継。地元雇用を守り、地域とともに成長してきた歴史があります。</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item__num">03</div>
+        <h3 class="feature-item__title">安心・安全な食品供給</h3>
+        <p class="feature-item__text">醤油・味噌・缶詰・飲料など、生活に欠かせない食品を確かな品質管理のもと安定供給。地域の食卓を守ることを使命としています。</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item__num">04</div>
+        <h3 class="feature-item__title">地域密着の配送ネットワーク</h3>
+        <p class="feature-item__text">茨城県鹿嶋市・神栖市を中心に、地域の食品スーパーへ確実に届ける配送体制を整えています。迅速かつ柔軟な対応で信頼を積み重ねています。</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item__num">05</div>
+        <h3 class="feature-item__title">多様な商品ラインナップ</h3>
+        <p class="feature-item__text">醤油・味噌などの調味料から、カップ麺・袋麺、缶詰、飲料まで。食品スーパーのニーズに応える幅広い商品カテゴリを一括対応します。</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item__num">06</div>
+        <h3 class="feature-item__title">人を大切にする経営理念</h3>
+        <p class="feature-item__text">「社員とその家族を物心両面で幸せにする」。経営理念として、スタッフ・パート・ドライバー全員が誇りを持って働ける環境をつくっています。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section class="services" id="services" aria-label="取扱商品">
+    <div class="services__text">
+      <span class="section__label">Products</span>
+      <h2 class="section__title">毎日の食卓に<br>必要なものを、全て。</h2>
+      <p style="font-size:0.85rem; color:#6B6B6B; line-height:2; margin-bottom:2rem;">
+        食品スーパーのバイヤーが求める商品を、安定した在庫と確かなルートで供給します。調味料から麺類、缶詰、飲料まで——お取引先の棚を支える、頼れるパートナーとして。
+      </p>
+      <ul class="services__list" role="list">
+        <li>醤油・味噌などの調味料</li>
+        <li>カップ麺・袋麺（即席麺類）</li>
+        <li>缶詰・瓶詰食品</li>
+        <li>飲料（ソフトドリンク・茶類）</li>
+        <li>乾物・その他常温食品</li>
+      </ul>
+    </div>
+    <div class="services__image">
+      <img
+        src="https://images.unsplash.com/photo-1766871138762-51db92945bbc?auto=format&fit=crop&w=900&h=600&q=80"
+        alt="食品スーパーの棚に並ぶカップ麺"
+        loading="lazy"
+      >
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about" id="about" aria-labelledby="about-title">
+    <div class="about__inner">
+      <div>
+        <span class="section__label" style="color:var(--gold);">Our Story</span>
+        <h2 class="section__title" id="about-title">
+          1945年、佃煮屋から始まった<br>
+          80年の軌跡。
+        </h2>
+        <p class="about__body">
+          終戦の年、初代・永作栄之が茨城・鹿嶋の地に「永作商店」を創業しました。漁師から仕入れた魚を、舗装もされていない道を自転車で東京築地まで行商に出る——その片道30km以上の道のりに、創業者の意志と誠実さが刻まれています。<br><br>
+          2代目の代に食品卸業へと転換し、地域の食品スーパーへの供給網を築いてきました。令和3年12月、3代目・永作浩二が事業を承継。「社員とその家族を幸せにする」という理念のもと、鹿嶋から食卓を支える使命を受け継いでいます。
+        </p>
+        <div class="about__timeline" role="list">
+          <div class="timeline-item" role="listitem">
+            <span class="timeline-item__year">1945</span>
+            <p class="timeline-item__text">初代・永作栄之が佃煮屋「永作商店」として創業。自転車で東京築地まで行商。</p>
+          </div>
+          <div class="timeline-item" role="listitem">
+            <span class="timeline-item__year">2代目</span>
+            <p class="timeline-item__text">食品卸業へ業態転換。鹿嶋市・神栖市の食品スーパーとの取引を拡大。</p>
+          </div>
+          <div class="timeline-item" role="listitem">
+            <span class="timeline-item__year">2021</span>
+            <p class="timeline-item__text">3代目・永作浩二が事業承継。地域の食品インフラとして新章へ。</p>
+          </div>
+          <div class="timeline-item" role="listitem">
+            <span class="timeline-item__year">2025</span>
+            <p class="timeline-item__text">創業80周年。茨城・鹿嶋から、食卓を支える使命を次世代へ。</p>
+          </div>
+        </div>
+      </div>
+      <div class="about__image">
+        <img
+          src="https://images.unsplash.com/photo-1745340706237-31c840c9174a?auto=format&fit=crop&w=800&h=480&q=80"
+          alt="伝統的な日本の店舗の内観"
+          loading="lazy"
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta" id="contact" aria-labelledby="cta-title">
+    <p class="cta__label">Contact / Recruit</p>
+    <h2 class="cta__title" id="cta-title">
+      お取引のご相談、<br>
+      採用のお問い合わせ。
+    </h2>
+    <p class="cta__sub">
+      食品卸のご相談、お取引の可否確認など、お気軽にお問い合わせください。<br>
+      4tドライバー・倉庫スタッフの採用も随時受け付けております。
+    </p>
+    <div class="cta__buttons">
+      <a href="tel:0299693371" class="btn-primary">お取引のご相談</a>
+      <a href="#recruit" class="btn-outline">採用情報（4tドライバー募集）</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="recruit" aria-label="フッター">
+    <div class="footer__inner">
+      <div>
+        <p class="footer__brand">株式会社 永作</p>
+        <p class="footer__tagline">Est. 1945 — 鹿嶋から、食卓へ。</p>
+        <address class="footer__address" style="font-style:normal;">
+          〒311-2205 茨城県鹿嶋市津賀1766-3<br>
+          TEL: <a href="tel:0299693371" style="color:inherit;">0299-69-3371</a><br>
+          代表: 永作 浩二
+        </address>
+      </div>
+      <div>
+        <p class="footer__heading">Navigation</p>
+        <ul class="footer__links" role="list">
+          <li><a href="#about">会社概要・沿革</a></li>
+          <li><a href="#services">取扱商品</a></li>
+          <li><a href="#features">私たちの強み</a></li>
+          <li><a href="#contact">お取引のご相談</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__heading">Recruit</p>
+        <ul class="footer__links" role="list">
+          <li><a href="#recruit">採用情報</a></li>
+          <li><a href="#recruit">4tドライバー募集</a></li>
+          <li><a href="#recruit">倉庫スタッフ募集</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer__bottom">&copy; 2025 株式会社永作. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

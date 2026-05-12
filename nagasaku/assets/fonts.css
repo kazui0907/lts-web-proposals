@@ -1,0 +1,28 @@
+/* ============================================================
+   fonts.css — 株式会社永作 WEBリニューアル提案 共通フォント
+   Google Fonts import。各パターンで必要なウェイトを選択して使う。
+   ============================================================ */
+
+/* Noto Serif JP — 明朝体見出し (Luxury Mono / Wa-Modern / Craft Warm / Artistic Void) */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&display=swap');
+
+/* Shippori Mincho — 伝統的明朝 (Wa-Modern / Artistic Void) */
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&display=swap');
+
+/* Noto Sans JP — 和文サンセリフ (全パターン本文) */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+/* BIZ UDPGothic — 清潔感ゴシック (Clean Medical) */
+@import url('https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap');
+
+/* Playfair Display — 欧文ラグジュアリーセリフ (Luxury Mono) */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* Cormorant Garamond — 欧文伝統セリフ (Wa-Modern / Artistic Void) */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&display=swap');
+
+/* Inter — 欧文サンセリフ (Clean Medical / 全パターン本文欧文) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+/* DM Serif Display — 欧文クラフトセリフ (Craft Warm) */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');

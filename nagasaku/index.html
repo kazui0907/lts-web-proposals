@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>株式会社永作 — 5パターン デザイン比較プレビュー</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img { max-width: 100%; height: auto; }
+
+    :root {
+      --bg: #0F0F12;
+      --panel: #1A1A22;
+      --border: rgba(255,255,255,0.1);
+      --text: #E8E8F0;
+      --muted: rgba(232,232,240,0.5);
+      --accent: #7C6CF2;
+      --accent-dim: rgba(124,108,242,0.15);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 400;
+      min-height: 100vh;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .header__title {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .header__title h1 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .header__title p {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    /* ===== TABS ===== */
+    .tabs {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      transition: all 0.2s;
+      font-family: 'Noto Sans JP', sans-serif;
+      min-height: 44px;
+    }
+
+    .tab-btn:hover {
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+    }
+
+    .tab-btn.active {
+      background: var(--accent-dim);
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    .tab-btn__num {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .tab-btn__name {
+      font-size: 0.75rem;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    /* ===== VIEW TOGGLE ===== */
+    .view-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .view-controls__label {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .toggle-group {
+      display: flex;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .toggle-btn {
+      padding: 7px 14px;
+      background: transparent;
+      color: var(--muted);
+      border: none;
+      cursor: pointer;
+      font-size: 0.78rem;
+      font-family: 'Noto Sans JP', sans-serif;
+      transition: all 0.2s;
+      min-height: 36px;
+      border-right: 1px solid var(--border);
+    }
+
+    .toggle-btn:last-child {
+      border-right: none;
+    }
+
+    .toggle-btn.active {
+      background: var(--accent);
+      color: white;
+    }
+
+    /* ===== PREVIEW AREA ===== */
+    .preview-area {
+      padding: 20px 24px;
+    }
+
+    /* PATTERN INFO CARD */
+    .pattern-info {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .pattern-info__badge {
+      background: var(--accent-dim);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 6px;
+      white-space: nowrap;
+      letter-spacing: 0.05em;
+      margin-top: 2px;
+    }
+
+    .pattern-info__text {}
+
+    .pattern-info__name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .pattern-info__desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .pattern-info__meta {
+      margin-left: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      text-align: right;
+    }
+
+    .pattern-info__stars {
+      color: #F59E0B;
+      font-size: 1rem;
+    }
+
+    .pattern-info__recommend {
+      font-size: 0.68rem;
+      color: var(--muted);
+    }
+
+    /* RECOMMEND BADGE */
+    .recommend-badge {
+      background: rgba(245,158,11,0.15);
+      border: 1px solid rgba(245,158,11,0.4);
+      color: #F59E0B;
+      font-size: 0.65rem;
+      font-weight: 600;
+      padding: 2px 10px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 4px;
+    }
+
+    /* ===== IFRAME LAYOUT ===== */
+    /* Mode: both (default) */
+    .preview-frames {
+      display: grid;
+      gap: 16px;
+    }
+
+    .preview-frames.mode-both {
+      grid-template-columns: 1fr 375px;
+    }
+
+    .preview-frames.mode-pc {
+      grid-template-columns: 1fr;
+    }
+
+    .preview-frames.mode-sp {
+      grid-template-columns: 375px;
+      justify-content: center;
+    }
+
+    .frame-wrapper {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .frame-header {
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .frame-header__dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .frame-header__dot--red { background: #FF5F57; }
+    .frame-header__dot--yellow { background: #FFBD2E; }
+    .frame-header__dot--green { background: #28C840; }
+
+    .frame-header__label {
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-left: 4px;
+    }
+
+    .frame-wrapper iframe {
+      display: block;
+      width: 100%;
+      border: none;
+      height: 700px;
+    }
+
+    /* SP iframe はwidth固定 */
+    .preview-frames.mode-sp .frame-wrapper iframe,
+    .preview-frames.mode-both .frame-wrapper:last-child iframe {
+      width: 375px;
+      height: 700px;
+    }
+
+    /* ===== LINK ROW ===== */
+    .link-row {
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .link-row__label {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .link-row__btn {
+      font-size: 0.75rem;
+      color: var(--accent);
+      border: 1px solid rgba(124,108,242,0.4);
+      padding: 6px 14px;
+      border-radius: 6px;
+      background: transparent;
+      cursor: pointer;
+      font-family: 'Noto Sans JP', sans-serif;
+      transition: all 0.2s;
+      min-height: 32px;
+    }
+
+    .link-row__btn:hover {
+      background: var(--accent-dim);
+    }
+
+    /* ===== WATERMARK ===== */
+    .watermark {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.15);
+      letter-spacing: 0.1em;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" role="banner">
+    <div class="header__title">
+      <h1>株式会社永作 — ホームページリニューアル提案</h1>
+      <p>5パターン デザイン比較プレビュー / WEBクリエイティブ部 アオ作成</p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="デザインパターン選択">
+      <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="preview-01" data-file="01-luxury-mono.html">
+        <span class="tab-btn__num">01</span>
+        <span class="tab-btn__name">Luxury Mono</span>
+      </button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="preview-02" data-file="02-clean-medical.html">
+        <span class="tab-btn__num">02</span>
+        <span class="tab-btn__name">Clean Medical</span>
+      </button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="preview-03" data-file="03-wa-modern.html">
+        <span class="tab-btn__num">03</span>
+        <span class="tab-btn__name">Wa-Modern</span>
+      </button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="preview-04" data-file="04-craft-warm.html">
+        <span class="tab-btn__num">04</span>
+        <span class="tab-btn__name">Craft Warm</span>
+      </button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="preview-05" data-file="05-artistic-void.html">
+        <span class="tab-btn__num">05</span>
+        <span class="tab-btn__name">Artistic Void</span>
+      </button>
+    </div>
+
+    <div class="view-controls" role="group" aria-label="表示モード切替">
+      <span class="view-controls__label">表示:</span>
+      <div class="toggle-group">
+        <button class="toggle-btn active" data-mode="both" aria-label="PC+SP両方表示">PC+SP</button>
+        <button class="toggle-btn" data-mode="pc" aria-label="PCのみ表示">PC</button>
+        <button class="toggle-btn" data-mode="sp" aria-label="SPのみ表示">SP</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== PREVIEW AREA ===== -->
+  <main class="preview-area" role="main">
+
+    <!-- Pattern Info Card -->
+    <div class="pattern-info" id="pattern-info" aria-live="polite">
+      <div class="pattern-info__badge" id="info-badge">01</div>
+      <div class="pattern-info__text">
+        <div class="pattern-info__name" id="info-name">Luxury Mono — ラグジュアリー・モノトーン型</div>
+        <div class="pattern-info__desc" id="info-desc">「引き算の美学」。高級感・洗練・静謐さ。漆黒×白×シャンパンゴールドで老舗80年の格を表現。Playfair Display＋Noto Serif JPの上品な組み合わせ。</div>
+      </div>
+      <div class="pattern-info__meta" id="info-meta">
+        <div class="pattern-info__stars" aria-label="推奨度 星3つ">★★★☆☆</div>
+        <div class="pattern-info__recommend">推奨度</div>
+      </div>
+    </div>
+
+    <!-- Frames -->
+    <div class="preview-frames mode-both" id="preview-frames">
+      <div class="frame-wrapper" role="region" aria-label="PCプレビュー">
+        <div class="frame-header">
+          <div class="frame-header__dot frame-header__dot--red" aria-hidden="true"></div>
+          <div class="frame-header__dot frame-header__dot--yellow" aria-hidden="true"></div>
+          <div class="frame-header__dot frame-header__dot--green" aria-hidden="true"></div>
+          <span class="frame-header__label">PC Preview (Full width)</span>
+        </div>
+        <iframe id="frame-pc" src="01-luxury-mono.html" title="PCプレビュー" loading="eager"></iframe>
+      </div>
+      <div class="frame-wrapper" role="region" aria-label="スマートフォンプレビュー">
+        <div class="frame-header">
+          <div class="frame-header__dot frame-header__dot--red" aria-hidden="true"></div>
+          <div class="frame-header__dot frame-header__dot--yellow" aria-hidden="true"></div>
+          <div class="frame-header__dot frame-header__dot--green" aria-hidden="true"></div>
+          <span class="frame-header__label">SP Preview (375px)</span>
+        </div>
+        <iframe id="frame-sp" src="01-luxury-mono.html" title="スマートフォンプレビュー" loading="eager"></iframe>
+      </div>
+    </div>
+
+    <!-- Link Row -->
+    <div class="link-row">
+      <span class="link-row__label">現在のパターンを別タブで開く:</span>
+      <button class="link-row__btn" id="open-btn" onclick="openCurrent()">新しいタブで開く</button>
+    </div>
+
+  </main>
+
+  <p class="watermark">WEBクリエイティブ部 アオ — 株式会社永作 ホームページリニューアル提案 2025</p>
+
+  <script>
+    const PATTERNS = {
+      '01-luxury-mono.html': {
+        badge: '01',
+        name: 'Luxury Mono — ラグジュアリー・モノトーン型',
+        desc: '「引き算の美学」。高級感・洗練・静謐さ。漆黒×白×シャンパンゴールドで老舗80年の格を表現。Playfair Display＋Noto Serif JPの上品な組み合わせ。',
+        stars: '★★★☆☆',
+        starsLabel: '推奨度 星3つ',
+        recommend: '推奨度',
+        special: null,
+      },
+      '02-clean-medical.html': {
+        badge: '02',
+        name: 'Clean Medical — クリーン・信頼型',
+        desc: '「安心できる清潔感」。白×深い信頼ブルーでBtoB取引先に信頼感を訴求。カードグリッドで情報を整理し、食品スーパー仕入担当者が求める情報に素早くアクセスできる設計。',
+        stars: '★★★★☆',
+        starsLabel: '推奨度 星4つ',
+        recommend: '推奨度',
+        special: null,
+      },
+      '03-wa-modern.html': {
+        badge: '03',
+        name: 'Wa-Modern — 和モダン・力強い型',
+        desc: '「志と誇り」。深い黒紺×金で3代80年の重みと使命感を表現。漢字の縦組みアクセントと Shippori Mincho で日本の老舗らしい凛とした佇まい。BtoB信頼性も高い。',
+        stars: '★★★★★',
+        starsLabel: '推奨度 星5つ（第一推奨）',
+        recommend: '第一推奨',
+        special: '推奨',
+      },
+      '04-craft-warm.html': {
+        badge: '04',
+        name: 'Craft Warm — クラフト・温かみ型',
+        desc: '「手仕事の品格」。ダークブラウン×生成りで老舗食品卸の温かさと誠実さを体現。3代続く物語性・人を大切にする経営理念が最も自然に伝わるパターン。採用訴求にも最適。',
+        stars: '★★★★★',
+        starsLabel: '推奨度 星5つ（第一推奨同率）',
+        recommend: '有力候補',
+        special: '有力',
+      },
+      '05-artistic-void.html': {
+        badge: '05',
+        name: 'Artistic Void — アート・余白型',
+        desc: '「余白が語る」。生成り×墨黒で「間（ま）」の美学を表現。漢字「食」を大きく据え、80年の静かな使命感を余白で語る。差別化力は最高だが、一般食品スーパー向けBtoBには検討余地あり。',
+        stars: '★★★☆☆',
+        starsLabel: '推奨度 星3つ',
+        recommend: '推奨度',
+        special: null,
+      },
+    };
+
+    let currentFile = '01-luxury-mono.html';
+    let currentMode = 'both';
+
+    // Tab switching
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+
+        currentFile = btn.dataset.file;
+        updateFrames();
+        updatePatternInfo();
+      });
+    });
+
+    // View toggle
+    document.querySelectorAll('.toggle-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentMode = btn.dataset.mode;
+        updateLayout();
+      });
+    });
+
+    function updateFrames() {
+      document.getElementById('frame-pc').src = currentFile;
+      document.getElementById('frame-sp').src = currentFile;
+    }
+
+    function updateLayout() {
+      const frames = document.getElementById('preview-frames');
+      frames.className = 'preview-frames mode-' + currentMode;
+
+      const spFrame = frames.querySelector('.frame-wrapper:last-child');
+      if (currentMode === 'pc') {
+        spFrame.style.display = 'none';
+      } else {
+        spFrame.style.display = '';
+      }
+    }
+
+    function updatePatternInfo() {
+      const p = PATTERNS[currentFile];
+      if (!p) return;
+
+      document.getElementById('info-badge').textContent = p.badge;
+      document.getElementById('info-name').textContent = p.name;
+      document.getElementById('info-desc').textContent = p.desc;
+
+      const meta = document.getElementById('info-meta');
+      let html = '';
+      if (p.special) {
+        html += `<div class="recommend-badge">${p.special}</div>`;
+      }
+      html += `<div class="pattern-info__stars" aria-label="${p.starsLabel}">${p.stars}</div>`;
+      html += `<div class="pattern-info__recommend">${p.recommend}</div>`;
+      meta.innerHTML = html;
+    }
+
+    function openCurrent() {
+      window.open(currentFile, '_blank');
+    }
+
+    // Init
+    updatePatternInfo();
+  </script>
+</body>
+</html>
